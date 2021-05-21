@@ -20,7 +20,7 @@ constructor() {
   render (){
     return (
     <View>
-      <Text>Esta es una tarjeta</Text>
+      <Text>{this.props.nombre}</Text>
     </View>
   
   
