@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-// import {styles} from './Styles';
-import Tarjeta from './components/Tarjeta'
+import {styles} from './Styles';
 
 import { 
   View,
+  Footer,
 } from "react-native";
 
-export default class App extends Component {
+export default class Footer extends Component {
   
 constructor() {
   super();
@@ -19,7 +19,7 @@ constructor() {
   render (){
     return (
     <View>
-      <Tarjeta></Tarjeta>
+      
     </View>
   
   

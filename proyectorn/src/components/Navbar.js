@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-// import {styles} from './Styles';
-import Tarjeta from './components/Tarjeta'
 
 import { 
   View,
+  Text,
 } from "react-native";
 
-export default class App extends Component {
+export default class Navbar extends Component {
   
 constructor() {
   super();
@@ -19,10 +18,12 @@ constructor() {
   render (){
     return (
     <View>
-      <Tarjeta></Tarjeta>
+      <Text>HOLA COMO ESTAS</Text>
     </View>
   
   
   )}  
 
 }
+
+export {navbar};
