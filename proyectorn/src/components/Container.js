@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {styles} from './Styles';
 import Tarjeta from './Tarjeta';
 
+
 import { 
   View,
 } from "react-native";
