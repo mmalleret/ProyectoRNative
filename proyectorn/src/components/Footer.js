@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {styles} from './Styles';
+// import {styles} from './Styles';
 
 import { 
-  View,
-  Footer,
+    Text,
+    View,
+
 } from "react-native";
 
 export default class Footer extends Component {
@@ -19,7 +20,7 @@ constructor() {
   render (){
     return (
     <View>
-      
+      <Text>Esto es el Footer</Text>
     </View>
   
   

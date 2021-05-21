@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Menu from './Menu'
 
 import { 
   View,
@@ -18,7 +19,8 @@ constructor() {
   render (){
     return (
     <View>
-      <Text>HOLA COMO ESTAS</Text>
+        <Menu></Menu>
+        <Text>HOLA COMO ESTAS</Text>
     </View>
   
   
@@ -26,4 +28,4 @@ constructor() {
 
 }
 
-export {navbar};
+

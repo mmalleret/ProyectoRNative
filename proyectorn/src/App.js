@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 // import {styles} from './Styles';
-import Tarjeta from './components/Tarjeta'
+import Navbar from './components/Navbar'
+import Container from './components/Container'
+import Footer from './components/Footer'
+
 
 import { 
   View,
@@ -19,7 +22,9 @@ constructor() {
   render (){
     return (
     <View>
-      <Tarjeta></Tarjeta>
+      <Navbar></Navbar>
+      <Container></Container>
+      <Footer></Footer>
     </View>
   
   
