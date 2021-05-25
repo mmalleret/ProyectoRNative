@@ -30,7 +30,20 @@ componentDidMount() {
       <View>
         {this.state.contactos.map((item) => {
         return (
-        <Tarjeta nombre={item.name.first}/>
+        <Tarjeta 
+        nombre={item.name.first} 
+        apellido={item.name.last} 
+        id={item.login.uuid} 
+        foto={item.picture.large} 
+        edad={item.dob.age} 
+        mail={item.email} 
+        fecha={item.dob.date} 
+        color="white" 
+        key={item.login.uuid} 
+        direccion={item.location} 
+        registro={item.registered.date}
+        telefono={item.cell}
+        />
         )
         })
       }
