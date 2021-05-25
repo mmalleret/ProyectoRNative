@@ -6,7 +6,6 @@ import Footer from './components/Footer'
 
 
 import { 
-  ScrollView,
   View,
 } from "react-native";
 
@@ -23,11 +22,9 @@ constructor() {
   render (){
     return (
     <View>
-      <ScrollView>
         <Navbar></Navbar>
         <Container></Container>
         <Footer></Footer>
-      </ScrollView>
     </View>
   
   
