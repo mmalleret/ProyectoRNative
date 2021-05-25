@@ -32,7 +32,7 @@ componentDidMount() {
         <ScrollView>
           {this.state.contactos.map((item) => {
           return (
-            <View style={{flex:1, flexDirection: 'row'}}> 
+            <View style={{flex:1}}> 
               <Tarjeta 
               nombre={item.name.first} 
               apellido={item.name.last} 
