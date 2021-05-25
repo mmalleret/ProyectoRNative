@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {styles} from './Styles';
+import {styles} from '../Styles';
 import Tarjeta from './Tarjeta';
 
 
@@ -17,7 +17,7 @@ constructor() {
   }
 }  
 
-componentDidMount(){
+componentDidMount() {
   fetch("https://randomuser.me/api/?results=12")
   .then(result => result.json())
   .then( data => { 
@@ -28,7 +28,12 @@ componentDidMount(){
   render () {
     return(
       <View>
+        {this.state.contactos.map((item) => {
+        return (
         <Tarjeta nombre={item.name.first}/>
+        )
+        })
+      }
       </View>
     )
   }
