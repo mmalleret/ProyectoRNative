@@ -19,13 +19,13 @@ constructor() {
 
   render (){
     return (
-    <View>
-      <Text>{this.props.nombre} {this.props.apellido} </Text>
-      <Text>{this.props.edad}</Text>
-      <Text>{this.props.mail}</Text>
-      <Text>{this.props.fecha}</Text>
-      <Text>{this.props.registro}</Text>
-      <Text>{this.props.telefono}</Text>
+    <View style={{flex: 1}}>
+        <View style={{flex: 1}} ><Text>{this.props.nombre} {this.props.apellido} </Text></View>
+        <View style={{flex: 1}}><Text>{this.props.edad}</Text></View> 
+        <View style={{flex: 1}}><Text>{this.props.mail}</Text></View>
+        <View style={{flex: 1}}><Text>{this.props.fecha}</Text></View> 
+        <View style={{flex: 1}}><Text>{this.props.registro}</Text></View>
+        <View style={{flex: 1}}><Text>{this.props.telefono}</Text></View> 
     </View>
   
   
