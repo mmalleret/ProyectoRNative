@@ -18,9 +18,11 @@ constructor() {
 
   render (){
     return (
-    <View>
+    <View style={{backgroundColor: "lightblue",
+    justifyContent: "center",
+    alignItems: "center", marginTop: 50, fontSize:40, padding:30}}>
         <Menu></Menu>
-        <Text>HOLA COMO ESTAS</Text>
+        <Text style={styleText}>Nemo</Text>
     </View>
   
   
@@ -28,4 +30,10 @@ constructor() {
 
 }
 
+const styleText = {
+  fontSize:10,
+  color: "black",
+  background: "blue",
+}
 
+{}

@@ -20,10 +20,14 @@ constructor() {
   render (){
     return (
     <View>
-      <Text>Esto es el Footer</Text>
+      <View>
+        <Text>Hamra - Kearney - Malleret</Text>
+      </View>
     </View>
   
   
   )}  
 
 }
+
+
