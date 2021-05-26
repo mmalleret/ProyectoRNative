@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Menu from './Menu'
 
 import { 
   View,
@@ -19,7 +18,6 @@ constructor() {
   render (){
     return (
     <View>
-        <Menu></Menu>
         <Text>HOLA COMO ESTAS</Text>
     </View>
   

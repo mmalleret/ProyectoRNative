@@ -19,7 +19,7 @@ constructor() {
 
   render (){
     return (
-    <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
         <View style={{flex: 1, backgroundColor: 'lightblue'}} ><Text>{this.props.nombre} {this.props.apellido} </Text></View>
         <View style={{flex: 1}}><Text>{this.props.edad}</Text></View> 
         <View style={{flex: 1}}><Text>{this.props.mail}</Text></View>
