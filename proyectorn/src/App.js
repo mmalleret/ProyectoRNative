@@ -21,10 +21,16 @@ constructor() {
 
   render (){
     return (
-    <View>
+    <View style={{flex: 1}}>
+      <View style={{flex: 1}}>
         <Navbar></Navbar>
+      </View>
+      <View style={{flex: 4}}>
         <Container></Container>
+      </View>
+      <View style={{flex: 1}}>
         <Footer></Footer>
+      </View>
     </View>
   
   

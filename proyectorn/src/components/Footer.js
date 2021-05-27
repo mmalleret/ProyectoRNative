@@ -19,13 +19,13 @@ constructor() {
 
   render (){
     return (
-    <View>
-      <View>
+
+    <View style={{backgroundColor: "lightblue",
+    justifyContent: "center",
+    alignItems: "center", marginTop: 50, fontSize:40, padding:30}}>
         <Text>Hamra - Kearney - Malleret</Text>
-      </View>
     </View>
-  
-  
+
   )}  
 
 }
