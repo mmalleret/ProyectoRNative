@@ -13,26 +13,30 @@ export default class Container extends Component {
 constructor() {
   super();
   this.state = {
-    contactos: [],
-    contactosOriginales: []
+    // contactos: [],
+    // contactosOriginales: []
   }
 }  
 
-componentDidMount() {
-  fetch("https://randomuser.me/api/?results=12")
-  .then(result => result.json())
-  .then( data => { 
-      this.setState({contactos: data.results, contactosOriginales: data.results})
-  })    
-}   
+// componentDidMount() {
+//   fetch("https://randomuser.me/api/?results=12")
+//   .then(result => result.json())
+//   .then( data => { 
+//       this.setState({contactos: data.results, contactosOriginales: data.results})
+//   })    
+// }   
 
   render () {
     return(
       <View>
         <ScrollView>
-          {this.state.contactos.map((item) => {
+          {this.props.contactos.map((item) => {
           return (
+<<<<<<< HEAD
               <View style={stylesContainer.container}>
+=======
+              <View style={styles.containerStyle} key={item.login.uuid} >
+>>>>>>> 3db572e90ec04ad4b2870651d3d922adc26f161d
                 <Tarjeta 
                 nombre={item.name.first} 
                 apellido={item.name.last} 
@@ -42,7 +46,6 @@ componentDidMount() {
                 mail={item.email} 
                 fecha={item.dob.date} 
                 color="white" 
-                key={item.login.uuid} 
                 direccion={item.location} 
                 registro={item.registered.date}
                 telefono={item.cell}
