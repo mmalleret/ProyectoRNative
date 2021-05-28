@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {styles} from '../Styles';
+import {navbarFooterStyle} from '../Styles';
 
 import { 
     Text,
@@ -20,10 +20,8 @@ constructor() {
   render (){
     return (
 
-    <View style={{backgroundColor: "lightblue",
-    justifyContent: "center",
-    alignItems: "center", marginTop: 50, fontSize:40, padding:30}}>
-        <Text>Hamra - Kearney - Malleret</Text>
+    <View style={navbarFooterStyle.contentStyle}>
+        <Text style={navbarFooterStyle.textStyle}>Hamra - Kearney - Malleret</Text>
     </View>
 
   )}  

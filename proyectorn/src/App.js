@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {styles} from './Styles';
+import {appStyle} from './Styles';
 import Navbar from './components/Navbar'
 import Container from './components/Container'
 import Footer from './components/Footer'
@@ -21,14 +21,14 @@ constructor() {
 
   render (){
     return (
-    <View style={{flex: 1}}>
-      <View style={{flex: 1}}>
+    <View style={appStyle.layout}>
+      <View style={appStyle.layout}>
         <Navbar></Navbar>
       </View>
-      <View style={{flex: 4}}>
+      <View style={appStyle.layout}>
         <Container></Container>
       </View>
-      <View style={{flex: 1}}>
+      <View style={appStyle.layout}>
         <Footer></Footer>
       </View>
     </View>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {styles} from '../Styles';
+import {stylesContainer} from '../Styles';
 import Tarjeta from './Tarjeta';
 
 
@@ -32,7 +32,7 @@ componentDidMount() {
         <ScrollView>
           {this.state.contactos.map((item) => {
           return (
-              <View style={styles.containerStyle}>
+              <View style={stylesContainer.container}>
                 <Tarjeta 
                 nombre={item.name.first} 
                 apellido={item.name.last} 
