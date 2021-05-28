@@ -32,7 +32,7 @@ componentDidMount() {
         <ScrollView>
           {this.state.contactos.map((item) => {
           return (
-              <View style={{backgroundColor: 'lightgray'}}>
+              <View style={styles.containerStyle}>
                 <Tarjeta 
                 nombre={item.name.first} 
                 apellido={item.name.last} 
