@@ -32,7 +32,6 @@ componentDidMount() {
         <ScrollView>
           {this.state.contactos.map((item) => {
           return (
-            <View style={{flex:1}}> 
               <View style={{backgroundColor: 'lightgray'}}>
                 <Tarjeta 
                 nombre={item.name.first} 
@@ -49,7 +48,6 @@ componentDidMount() {
                 telefono={item.cell}
                 />
               </View>
-            </View>
           )
           })
         }
