@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {styles} from './Styles';
 import Navbar from './components/Navbar'
-import Container from './components/Container'
+import Screen_Imports from './screens/Screen_Imports'
 import Footer from './components/Footer'
 
 
@@ -26,7 +26,8 @@ constructor() {
         <Navbar></Navbar>
       </View>
       <View style={{flex: 4}}>
-        <Container></Container>
+        {/* <Container></Container> */}
+      <Screen_Imports></Screen_Imports>
       </View>
       <View style={{flex: 1}}>
         <Footer></Footer>

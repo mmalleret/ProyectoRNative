@@ -1,30 +1,48 @@
 import React, { Component } from 'react';
-
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import Container from '../components/Container'
 
 import { 
   View,
-  Text
+  Text,
 } from "react-native";
 
-export default class Importar extends Component {
+export default class Screen_Imports extends Component {
   
 constructor() {
   super();
   this.state = {
+    contactos: [],
 
   }
 }  
+
+componentDidMount() {
+  fetch("https://randomuser.me/api/?results=5")
+  .then(result => result.json())
+  .then( data => { 
+      this.setState({contactos: data.results})
+  })    
+} 
+
+async storeData(){
+  try{
+    const jsonContacts = JSON.stringify(this.state.contactos);
+    await AsyncStorage.setItem("contactos", jsonContacts);
+  } catch(e) {
+    console.log(e)
+  }
+}
 
 
   render (){
     return (
     <View>
-      <Text>Formulario? En donde se agregan las tarjetas importadas</Text>
+      <Container
+      contactos={this.state.contactos}></Container>
     </View>
   
   
   )}  
 
 }
-
-export default Importar;

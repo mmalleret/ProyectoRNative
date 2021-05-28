@@ -6,7 +6,7 @@ import {
   Text
 } from "react-native";
 
-export default class Contactos extends Component {
+export default class Screen_ViewImportedCards extends Component {
   
 constructor() {
   super();
@@ -19,13 +19,10 @@ constructor() {
   render (){
     return (
     <View>
-      <Text>Es la pág principal con las tarjetas, pero tiene que estar en el menu. 
-          Aca tambien va: Ver tarjetas, Eliminar tarjetas, Modificar tarjetas</Text>
+
     </View>
   
   
   )}  
 
 }
-
-export default Contactos;
