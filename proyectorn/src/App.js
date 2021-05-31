@@ -33,8 +33,9 @@ constructor() {
         <Footer></Footer>
       </View>
     </View>
+    
   
   
-  )}  
 
-}
+  )}  
+  }
