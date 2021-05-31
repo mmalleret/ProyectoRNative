@@ -5,6 +5,7 @@ import Tarjeta from './Tarjeta';
 
 import { 
   ScrollView,
+  TouchableOpacity,
   View,
 } from "react-native";
 
@@ -46,6 +47,7 @@ constructor() {
                 registro={item.registered.date}
                 telefono={item.cell}
                 />
+              <TouchableOpacity onPress={this.props.guardar}><Text>Guardar</Text></TouchableOpacity>
               </View>
           )
           })

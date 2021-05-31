@@ -25,9 +25,9 @@ componentDidMount() {
   })    
 } 
 
-async storeData(){
+async storeData(value){
   try{
-    const jsonContacts = JSON.stringify(this.state.contactos);
+    const jsonContacts = JSON.stringify(value);
     await AsyncStorage.setItem("contactos", jsonContacts);
   } catch(e) {
     console.log(e)
@@ -39,7 +39,8 @@ async storeData(){
     return (
     <View>
       <Container
-      contactos={this.state.contactos}></Container>
+      contactos={this.state.contactos} 
+      guardar={this.storeData}></Container>
     </View>
   
   
