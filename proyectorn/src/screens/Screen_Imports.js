@@ -27,7 +27,9 @@ componentDidMount() {
 
 async storeData(value){
   try{
+    console.log(value)
     const jsonContacts = JSON.stringify(value);
+    
     await AsyncStorage.setItem("contactos", jsonContacts);
   } catch(e) {
     console.log(e)

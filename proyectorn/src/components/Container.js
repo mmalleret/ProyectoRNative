@@ -7,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   View,
+  Text,
 } from "react-native";
 
 export default class Container extends Component {
@@ -47,7 +48,7 @@ constructor() {
                 registro={item.registered.date}
                 telefono={item.cell}
                 />
-              <TouchableOpacity onPress={this.props.guardar}><Text>Guardar</Text></TouchableOpacity>
+              <TouchableOpacity onPress={() => this.props.guardar(item)}><Text>Guardar</Text></TouchableOpacity>
               </View>
           )
           })
