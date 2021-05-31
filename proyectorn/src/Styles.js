@@ -1,4 +1,4 @@
-import{StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const appStyle = StyleSheet.create({
     layout: {
@@ -25,7 +25,7 @@ const stylesTarjeta = StyleSheet.create({
     },
 })
 
-const navbarFooterStyle = Stylesheet.create({
+const navbarFooterStyle = StyleSheet.create({
     contentStyle: {
         backgroundColor: "lightblue",
         justifyContent: "center",
@@ -37,7 +37,7 @@ const navbarFooterStyle = Stylesheet.create({
     textStyle: {
         fontSize:10,
         color: "black",
-        background: "blue",
+        backgroundColor: "blue",
       }
       
 })
