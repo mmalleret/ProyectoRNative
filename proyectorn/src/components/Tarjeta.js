@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {stylesTarjeta} from '../Styles';
+import {stylesTarjeta} from '../styles/Styles';
 
 import { 
     Text,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {stylesContainer} from '../Styles';
+import {stylesContainer} from '../styles/Styles';
 import Tarjeta from './Tarjeta';
 
 
