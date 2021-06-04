@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {navbarFooterStyle} from '../Styles';
+import {navbarFooterStyle} from '../styles/Styles';
 
 import { 
   View,

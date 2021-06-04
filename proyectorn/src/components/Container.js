@@ -4,35 +4,54 @@ import Tarjeta from './Tarjeta';
 
 
 import { 
-  ScrollView,
   TouchableOpacity,
   View,
   Text,
+  FlatList,
 } from "react-native";
 
 export default class Container extends Component {
   
-constructor() {
-  super();
+constructor(props) {
+  super(props);
   this.state = {
-    // contactos: [],
-    // contactosOriginales: []
+    
   }
-}  
+}   
 
-// componentDidMount() {
-//   fetch("https://randomuser.me/api/?results=12")
-//   .then(result => result.json())
-//   .then( data => { 
-//       this.setState({contactos: data.results, contactosOriginales: data.results})
-//   })    
-// }   
+keyExtractor = (item, idx) => item.login.uuid
+
+renderItem = ({item}) => {
+  return(
+    <View style={stylesContainer.container} >
+        <Tarjeta 
+          nombre={item.name.first} 
+          apellido={item.name.last} 
+          id={item.login.uuid} 
+          foto={item.picture.large} 
+          edad={item.dob.age} 
+          mail={item.email} 
+          fecha={item.dob.date}  
+          direccion={item.location} 
+          registro={item.registered.date}
+          telefono={item.cell}
+        />
+        <TouchableOpacity onPress={() => this.props.guardar(item)}><Text>Guardar</Text></TouchableOpacity>
+      </View>
+    )
+  }
 
   render () {
+
     return(
       <View>
-        <ScrollView>
-          {this.props.contactos.map((item) => {
+        <FlatList
+        data={this.props.contactos}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderItem}
+        >
+          
+          {/* {this.props.contactos.map((item) => {
           return (
               <View style={stylesContainer.container} key={item.login.uuid} >
                 <Tarjeta 
@@ -52,8 +71,8 @@ constructor() {
               </View>
           )
           })
-        }
-      </ScrollView>
+        } */}
+        </FlatList>
       </View>
     )
   }
