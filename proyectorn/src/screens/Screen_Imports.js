@@ -21,12 +21,13 @@ constructor() {
 }  
 
 componentDidMount() {
-  getData()
-  .then((usuarios) => {
-    console.log(usuarios)
-    this.setState({contactos: usuarios})
-  })   
+  this.getDataFromApi();
 } 
+
+async getDataFromApi() {
+let usuarios = await getData();
+this.setState({contactos: usuarios})
+}
 
 async storeData(value){
   

@@ -50,28 +50,6 @@ renderItem = ({item}) => {
         keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
         >
-          
-          {/* {this.props.contactos.map((item) => {
-          return (
-              <View style={stylesContainer.container} key={item.login.uuid} >
-                <Tarjeta 
-                nombre={item.name.first} 
-                apellido={item.name.last} 
-                id={item.login.uuid} 
-                foto={item.picture.large} 
-                edad={item.dob.age} 
-                mail={item.email} 
-                fecha={item.dob.date} 
-                color="white" 
-                direccion={item.location} 
-                registro={item.registered.date}
-                telefono={item.cell}
-                />
-              <TouchableOpacity onPress={() => this.props.guardar(item)}><Text>Guardar</Text></TouchableOpacity>
-              </View>
-          )
-          })
-        } */}
         </FlatList>
       </View>
     )

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {appStyle} from './styles/Styles';
 import Navbar from './components/Navbar'
-//import Screen_Imports from './screens/Screen_Imports'
-import Screen_ViewImportedCards from './screens/Screen_ViewImportedCards'
+import Screen_Imports from './screens/Screen_Imports'
 import Footer from './components/Footer'
 
 
@@ -28,7 +27,7 @@ constructor() {
       </View>
       <View style={appStyle.layout}>
         {/* <Container></Container> */}
-      <Screen_ViewImportedCards></Screen_ViewImportedCards>
+        <Screen_Imports></Screen_Imports>
       </View>
       <View style={appStyle.layout}>
         <Footer></Footer>
