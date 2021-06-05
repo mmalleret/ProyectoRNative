@@ -23,7 +23,7 @@ keyExtractor = (item, idx) => item.login.uuid
 
 renderItem = ({item}) => {
   return(
-    <View style={stylesContainer.container} >
+    <View style={stylesContainer.container}>
         <Tarjeta 
           nombre={item.name.first} 
           apellido={item.name.last} 
