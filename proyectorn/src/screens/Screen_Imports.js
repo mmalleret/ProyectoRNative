@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  ActivityIndicator
 } from "react-native";
 
 export default class Screen_Imports extends Component {
@@ -16,7 +17,7 @@ constructor() {
   this.state = {
     contactos: [],
     importar:[],
-
+    activity: true
   }
 }  
 
@@ -26,7 +27,7 @@ componentDidMount() {
 
 async getDataFromApi() {
 let usuarios = await getData();
-this.setState({contactos: usuarios})
+this.setState({contactos: usuarios, activity: false})
 }
 
 async storeData(value){
@@ -67,12 +68,23 @@ async storeData(value){
           <Text>Importar</Text>
         </TouchableOpacity>
       </View>
-      <Container
-      contactos={this.state.contactos} 
-      guardar={this.storeData}></Container>
+        { this.state.activity
+        ? <ActivityIndicator
+        color = "blue"
+        size = {60}
+        />
+        : <View><Container 
+        contactos={this.state.contactos} 
+        guardar={this.storeData}></Container>
+        </View>
+        }
+      
     </View>
   
   
   )}  
 
 }
+
+
+
