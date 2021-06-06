@@ -43,7 +43,7 @@ async getData() {
     <View>
       <Container contactos={this.state.contactosImportados}/>
       <TouchableOpacity onPress={this.getData.bind(this)}>
-        <Text>Boton</Text>
+        <Text>Contactos importados</Text>
       </TouchableOpacity>
     </View>
   

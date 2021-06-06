@@ -58,6 +58,16 @@ async storeData(value){
   }
 }
 
+async deleteData(id) {
+  try {
+    let deleteContacto = this.state.almacenar.filter((dato) => {return dato.login.uuid !== id})
+    this.setState(almacenar == deleteContacto)
+    
+  } catch(e) {
+    console.log(e)
+  }
+}
+
 
   render (){
     return (
@@ -79,6 +89,11 @@ async storeData(value){
         </View>
         }
       
+      <Container
+      contactos={this.state.contactos} 
+      guardar={this.storeData}
+      eliminar={this.deleteData}
+      ></Container>
     </View>
   
   
