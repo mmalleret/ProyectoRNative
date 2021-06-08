@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Container from '../components/Container';
-import {getData} from '../api/RandomUser';
+import {getDataFromApi} from '../api/getDataFromApi';
 
 import { 
   Text,
@@ -25,11 +25,11 @@ constructor() {
 //   this.getDataFromApi();
 // } 
 
-async getDataFromApi() {
-  this.setState({activity: true})
-  let usuarios = await getData();
-  this.setState({contactos: usuarios, activity: false})
-}
+// async getDataFromApi() {
+//   this.setState({activity: true})
+//   let usuarios = await getData();
+//   this.setState({contactos: usuarios, activity: false})
+// }
 
 async storeData(value){
   
