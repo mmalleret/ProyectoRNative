@@ -9,19 +9,29 @@ const appStyle = StyleSheet.create({
 const stylesContainer = StyleSheet.create({
 
     container: {
-        backgroundColor: 'lightgray'
+        
     }
 
 })
 
 const stylesTarjeta = StyleSheet.create({
     container: {
-        flexDirection: 'column', 
+        fle: 1,
         justifyContent: 'center', 
         alignItems: 'center'
     },
     item: {
-        flex: 1
+        flex: 1,
+        fontSize: 15,
+    },
+    diseñoTarjeta: {
+        backgroundColor: "#8ed7e8",
+        borderWidth: 1,
+        borderRadious: 20,
+        margin: 5,
+        width: 250,
+        height: 200,
+        padding: 10
     },
 })
 
@@ -35,9 +45,8 @@ const navbarFooterStyle = StyleSheet.create({
         padding:30,
     },
     textStyle: {
-        fontSize:10,
+        fontSize: 20,
         color: "black",
-        backgroundColor: "blue",
       }
       
 })
