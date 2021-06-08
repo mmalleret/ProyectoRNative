@@ -84,7 +84,6 @@ async deleteData(id) {
       </View>
         { this.state.activity 
           ? <>
-            <Text>Obteniendo contactos...</Text>
             <ActivityIndicator
             color = "blue"
             size = {60}/>
