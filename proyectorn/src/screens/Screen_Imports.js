@@ -69,7 +69,6 @@ async storeData(value){
           <Text>Importar</Text>
         </TouchableOpacity>
       </View>
-<<<<<<< HEAD
 
         { this.state.activity
         ? <ActivityIndicator
@@ -80,18 +79,6 @@ async storeData(value){
         contactos={this.state.contactos} 
         guardar={this.storeData}></Container>
         </View>
-=======
-        { this.state.activity 
-          ? <>
-            <ActivityIndicator
-            color = "blue"
-            size = {60}/>
-            </>
-          : <View><Container 
-            contactos={this.state.contactos} 
-            guardar={this.storeData}></Container>
-            </View>
->>>>>>> 102675b11dc007f7db4279a7e95c793860a4ae2d
         }
       
       <Container
