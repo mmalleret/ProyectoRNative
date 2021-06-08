@@ -4,10 +4,11 @@ import {modalStyle} from '../styles/Styles';
 import { 
     Text,
     View,
+    Modal,
 
 } from "react-native";
 
-export default class Modal extends Component {
+export default class ModalNew extends Component {
   
 constructor() {
   super();
@@ -19,10 +20,11 @@ constructor() {
 
   render (){
     return (
-
-    <View style={modalStyle}>
+    <Modal visible={this.state.show}>
+      <View style={modalStyle}>
         <Text style={modalStyle.text}></Text>
-    </View>
+      </View>
+    </Modal>
 
   )}  
 
