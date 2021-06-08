@@ -36,8 +36,6 @@ async getData() {
   }
 }
 
-
-
   render (){
     return (
     <View>
