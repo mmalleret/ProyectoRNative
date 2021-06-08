@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {stylesContainer} from '../styles/Styles';
 import Tarjeta from './Tarjeta';
+import Modal from './Modal'
 
 
 import { 
@@ -15,6 +16,7 @@ export default class Container extends Component {
 constructor(props) {
   super(props);
   this.state = {
+    
     
   }
 }   
@@ -54,6 +56,7 @@ renderItem = ({item}) => {
         renderItem={this.renderItem}
         >
         </FlatList>
+        {/* <Modal/> */}
       </View>
     )
   }

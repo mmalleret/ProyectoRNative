@@ -21,9 +21,9 @@ constructor() {
   }
 }  
 
-componentDidMount() {
-  this.getDataFromApi();
-} 
+// componentDidMount() {
+//   this.getDataFromApi();
+// } 
 
 async getDataFromApi() {
   this.setState({activity: true})
@@ -62,12 +62,25 @@ async storeData(value){
   render (){
     return (
     <View>
+      
       <View>
         <Text>¿Cuantos contactos desea añadir?</Text>
         <TouchableOpacity onPress={() => this.getDataFromApi()}>
           <Text>Importar</Text>
         </TouchableOpacity>
       </View>
+<<<<<<< HEAD
+
+        { this.state.activity
+        ? <ActivityIndicator
+        color = "blue"
+        size = {60}
+        />
+        : <View><Container 
+        contactos={this.state.contactos} 
+        guardar={this.storeData}></Container>
+        </View>
+=======
         { this.state.activity 
           ? <>
             <Text>Obteniendo contactos...</Text>
@@ -79,6 +92,7 @@ async storeData(value){
             contactos={this.state.contactos} 
             guardar={this.storeData}></Container>
             </View>
+>>>>>>> 102675b11dc007f7db4279a7e95c793860a4ae2d
         }
       
       <Container
