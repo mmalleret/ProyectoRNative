@@ -17,7 +17,7 @@ constructor() {
   this.state = {
     contactos: [],
     importar:[],
-    activity: true
+    activity: false
   }
 }  
 
@@ -26,8 +26,9 @@ constructor() {
 // } 
 
 async getDataFromApi() {
-let usuarios = await getData();
-this.setState({contactos: usuarios, activity: false})
+  this.setState({activity: true})
+  let usuarios = await getData();
+  this.setState({contactos: usuarios, activity: false})
 }
 
 async storeData(value){
@@ -61,12 +62,15 @@ async storeData(value){
 async deleteData(id) {
   try {
     let deleteContacto = this.state.almacenar.filter((dato) => {return dato.login.uuid !== id})
-    this.setState(almacenar == deleteContacto)
+    this.setState({almacenar : deleteContacto})
     
   } catch(e) {
     console.log(e)
   }
 }
+//Sobreeescribir contactos almacenando todos los contactos menos el que elimine -> setItem(contactos)
+// saveItem pero la key no es contacto sino borrados (cambiar save por set)
+
 
 
   render (){
@@ -79,6 +83,7 @@ async deleteData(id) {
           <Text>Importar</Text>
         </TouchableOpacity>
       </View>
+<<<<<<< HEAD
 
         { this.state.activity
         ? <ActivityIndicator
@@ -89,6 +94,19 @@ async deleteData(id) {
         contactos={this.state.contactos} 
         guardar={this.storeData}></Container>
         </View>
+=======
+        { this.state.activity 
+          ? <>
+            <Text>Obteniendo contactos...</Text>
+            <ActivityIndicator
+            color = "blue"
+            size = {60}/>
+            </>
+          : <View><Container 
+            contactos={this.state.contactos} 
+            guardar={this.storeData}></Container>
+            </View>
+>>>>>>> 102675b11dc007f7db4279a7e95c793860a4ae2d
         }
       
       <Container
