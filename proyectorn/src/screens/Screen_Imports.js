@@ -22,14 +22,8 @@ constructor() {
 }  
 
 componentDidMount() {
-  this.getDataFromApi();
+  getDataFromApi();
 } 
-
-// async getDataFromApi() {
-//   this.setState({activity: true})
-//   let usuarios = await getData();
-//   this.setState({contactos: usuarios, activity: false})
-// }
 
 async storeData(value){
   
@@ -63,19 +57,6 @@ async storeData(value){
     return (
     <View>
       
-<<<<<<< HEAD
-        { this.state.activity 
-          ? <>
-            <Text>Obteniendo contactos...</Text>
-            <ActivityIndicator
-            color = "blue"
-            size = {60}/>
-            </>
-          : <View><Container 
-            contactos={this.state.contactos} 
-            guardar={this.storeData}></Container>
-            </View>
-=======
       <View>
         <Text>¿Cuantos contactos desea añadir?</Text>
         <TouchableOpacity onPress={() => this.getDataFromApi()}>
@@ -92,7 +73,6 @@ async storeData(value){
         contactos={this.state.contactos} 
         guardar={this.storeData}></Container>
         </View>
->>>>>>> 6e16240e1344075a6bf82f46bd5a7e3af9a7a8ad
         }
       
       <Container
