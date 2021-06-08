@@ -45,9 +45,6 @@ async getData() {
       <TouchableOpacity onPress={this.getData.bind(this)}>
         <Text>Contactos importados</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={ ()=> this.setState({contactosImportados: []})}>
-        <Text>Eliminar contactos</Text>
-      </TouchableOpacity>
     </View>
   
   

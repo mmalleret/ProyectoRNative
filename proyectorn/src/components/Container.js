@@ -38,7 +38,10 @@ renderItem = ({item}) => {
           registro={item.registered.date}
           telefono={item.cell}
         />
+        
         <TouchableOpacity onPress={() => this.props.guardar(item)}><Text>Guardar</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.eliminar(item)}><Text>Eliminar</Text></TouchableOpacity>
+
       </View>
     )
   }
