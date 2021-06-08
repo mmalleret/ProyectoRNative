@@ -21,9 +21,9 @@ constructor() {
   }
 }  
 
-componentDidMount() {
-  this.getDataFromApi();
-} 
+// componentDidMount() {
+//   this.getDataFromApi();
+// } 
 
 async getDataFromApi() {
 let usuarios = await getData();
@@ -72,12 +72,14 @@ async deleteData(id) {
   render (){
     return (
     <View>
+      
       <View>
         <Text>¿Cuantos contactos desea añadir?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => this.getDataFromApi()}>
           <Text>Importar</Text>
         </TouchableOpacity>
       </View>
+
         { this.state.activity
         ? <ActivityIndicator
         color = "blue"

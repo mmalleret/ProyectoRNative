@@ -20,13 +20,10 @@ constructor() {
   render (){
     return (
     <View  style={stylesTarjeta.container}>
-        <View style={stylesTarjeta.item} ><Text>{this.props.nombre} {this.props.apellido} </Text></View>
-        <View style={stylesTarjeta.item}><Text>{this.props.edad}</Text></View> 
+        <View style={stylesTarjeta.item} ><Text> {this.props.apellido} {this.props.nombre} </Text></View> 
         <View style={stylesTarjeta.item}><Text>{this.props.mail}</Text></View>
-        <View style={stylesTarjeta.item}><Text>{this.props.fecha}</Text></View> 
-        <View style={stylesTarjeta.item}><Text>{this.props.registro}</Text></View>
-        <View style={stylesTarjeta.item}><Text>{this.props.telefono}</Text></View>
-        <View><TouchableOpacity onPress={ () => this.setState({showModal: true})}><Text>...</Text></TouchableOpacity></View> 
+        <View style={stylesTarjeta.item}><Text>{this.props.fecha} ({this.props.edad})</Text></View> 
+        {/* <View><TouchableOpacity onPress={ () => this.setState({showModal: true})}><Text>...</Text></TouchableOpacity></View>  */}
     </View>
   
   

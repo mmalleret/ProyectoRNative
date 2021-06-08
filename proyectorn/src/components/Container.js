@@ -56,7 +56,7 @@ renderItem = ({item}) => {
         renderItem={this.renderItem}
         >
         </FlatList>
-        <Modal/>
+        {/* <Modal/> */}
       </View>
     )
   }

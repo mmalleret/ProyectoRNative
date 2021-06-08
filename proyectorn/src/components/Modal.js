@@ -1,33 +1,33 @@
-import React, { Component } from 'react';
-import {modalStyle} from '../styles/Styles';
+// import React, { Component } from 'react';
+// import {modalStyle} from '../styles/Styles';
 
-import { 
-    Text,
-    View,
-    Modal,
+// import { 
+//     Text,
+//     View,
+//     Modal,
 
-} from "react-native";
+// } from "react-native";
 
-export default class ModalNew extends Component {
+// export default class ModalNew extends Component {
   
-constructor() {
-  super();
-  this.state = {
+// constructor() {
+//   super();
+//   this.state = {
 
-  }
-}  
+//   }
+// }  
 
 
-  render (){
-    return (
-    <Modal visible={this.state.show}>
-      <View style={modalStyle}>
-        <Text style={modalStyle.text}></Text>
-      </View>
-    </Modal>
+//   render (){
+//     return (
+//     <Modal visible={this.state.show}>
+//       <View style={modalStyle}>
+//         <Text style={modalStyle.text}></Text>
+//       </View>
+//     </Modal>
 
-  )}  
+//   )}  
 
-}
+// }
 
 
