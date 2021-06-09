@@ -43,7 +43,9 @@ async getData() {
       <TouchableOpacity onPress={this.getData.bind(this)}>
         <Text>Contactos importados</Text>
       </TouchableOpacity>
+      
     </View>
+  
   
   
   )}  
