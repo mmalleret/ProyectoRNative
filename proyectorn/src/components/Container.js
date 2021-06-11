@@ -22,7 +22,8 @@ keyExtractor = (item, idx) => item.login.uuid
 renderItem = ({item}) => {
   return(
     
-    <TouchableOpacity style={{backgroundColor:this.props.color}} onPress={() => this.props.seleccionar(item)}>
+    <TouchableOpacity onPress={() => this.props.seleccionar(item)}>
+      {/* esto no anda TODAVÍA porque hay un problema con el this.state.color */}
         
         <Tarjeta 
           nombre={item.name.first} 
@@ -50,7 +51,7 @@ renderItem = ({item}) => {
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
         />
-        <TouchableOpacity onPress={() => this.props.guardar(item)}><Text>Guardar contactos seleccionados</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.guardar()}><Text>Guardar contactos seleccionados</Text></TouchableOpacity>
       </View>
     )
   }

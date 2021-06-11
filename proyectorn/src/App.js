@@ -23,16 +23,19 @@ constructor() {
   render (){
     return (
     <View style={appStyle.layout}>
+
       <View style={appStyle.layout}>
-        <Navbar></Navbar>
+        <Navbar/>
       </View>
+
       <View style={appStyle.layout}>
-        {/* <Container></Container> */}
-        <Screen_Imports></Screen_Imports>
+        <Screen_Imports/>
       </View>
+
       <View style={appStyle.layout}>
-        <Footer></Footer>
+        <Footer/>
       </View>
+    
     </View>
     
   

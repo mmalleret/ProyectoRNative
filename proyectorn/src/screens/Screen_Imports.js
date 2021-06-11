@@ -5,7 +5,7 @@ import {getData} from '../api/RandomUser';
 
 import { 
   View,
-  ActivityIndicator
+  ActivityIndicator,
 } from "react-native";
 
 export default class Screen_Imports extends Component {
@@ -16,7 +16,7 @@ constructor() {
     contactos: [],
     importar:[],
     activity: false,
-    color: "white"
+    color: "white",
   }
 }  
 
@@ -25,7 +25,8 @@ getDataFromApi() {
   getData()
   .then((resultado)=> {
     this.setState({activity: true})
-    this.setState({contactos: resultado, activity: false})}) 
+    this.setState({contactos: resultado, activity: false})
+  }) 
   
 }
 
@@ -38,30 +39,30 @@ selectData (item){
 
          this.setState({color: 'white'})
 
-         let lugar = this.state.contactos.findIndex((objeto) => {
-          return objeto.login.uuid === item.login.uuid;
-        })
+          let lugar = this.state.contactos.findIndex((objeto) => {
+            return objeto.login.uuid === item.login.uuid;
+          })
 
-         let eliminar = this.state.importar.splice(lugar, 1)
-         console.log(eliminar)
-         this.setState({importar: eliminar})
+          let eliminarContacto = this.state.importar.splice(lugar, 1)
+          console.log(eliminar)
+          this.setState({importar: eliminarContacto})
      
-        }else{
+     }else{
+
          this.setState({color:'#8ed7e8'}) 
          let agregar = this.state.importar.push(item)
          console.log(agregar)
-
-     }
+        }
  }
 
-  async storeData(){
-    try{
-     const jsonContacts = JSON.stringify(this.state.prueba)
-     await AsyncStorage.setItem('contactos', jsonContacts);}
-
-    catch(e){
+async storeData(){
+  try{
+     const jsonContacts = JSON.stringify(this.state.importar)
+     await AsyncStorage.setItem('contactos', jsonContacts);
+  }
+  catch(e){
       console.log(e)
-     }
+  }
  }
 
 //async storeData(value){
@@ -96,13 +97,6 @@ selectData (item){
     return (
     <View>
       
-      {/* <View>
-        <Text>¿Cuantos contactos desea añadir?</Text>
-        <TouchableOpacity onPress={() => this.getDataFromApi()}>
-          <Text>Importar</Text>
-        </TouchableOpacity>
-      </View> */}
-
         { this.state.activity
         ? <ActivityIndicator
         color={"blue"}
@@ -110,18 +104,12 @@ selectData (item){
 
         : <View><Container 
         contactos={this.state.contactos} 
-        guardar={this.storeData}
+        color={this.state.color}
         seleccionar={this.selectData}
-        color={this.state.color}></Container>
+        guardar={this.storeData}/>
         </View>
         }
-      
-      {/* <Container
-      contactos={this.state.contactos} 
-      guardar={this.storeData}
-      //eliminar={this.deleteData}
-      seleccionar={this.selectData}
-      ></Container> */}
+  
     </View>
   
   
