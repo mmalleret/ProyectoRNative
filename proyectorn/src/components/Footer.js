@@ -4,7 +4,6 @@ import {navbarFooterStyle} from '../styles/Styles';
 import { 
     Text,
     View,
-
 } from "react-native";
 
 export default class Footer extends Component {

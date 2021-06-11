@@ -6,13 +6,6 @@ const appStyle = StyleSheet.create({
     }
 })
 
-const stylesContainer = StyleSheet.create({
-
-    container: {
-        
-    }
-
-})
 
 const stylesTarjeta = StyleSheet.create({
     container: {
@@ -50,6 +43,6 @@ const navbarFooterStyle = StyleSheet.create({
       }
       
 })
-export {stylesContainer, stylesTarjeta, navbarFooterStyle, appStyle}
+export { stylesTarjeta, navbarFooterStyle, appStyle}
 
 

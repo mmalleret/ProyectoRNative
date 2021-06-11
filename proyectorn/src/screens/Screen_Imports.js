@@ -4,8 +4,6 @@ import Container from '../components/Container';
 import {getData} from '../api/RandomUser';
 
 import { 
-  // Text,
-  // TouchableOpacity,
   View,
   ActivityIndicator
 } from "react-native";
@@ -18,77 +16,81 @@ constructor() {
     contactos: [],
     importar:[],
     activity: false,
-    prueba: [],
+    color: "white"
   }
 }  
 
 
-async getDataFromApi() {
+getDataFromApi() {
+  getData()
+  .then((resultado)=> {
     this.setState({activity: true})
-    let usuarios = await getData();
-    this.setState({contactos: usuarios, activity: false})
+    this.setState({contactos: resultado, activity: false})}) 
+  
 }
 
 componentDidMount() {
-  getDataFromApi() 
+  this.getDataFromApi() 
 } 
 
-// async selectData (posicion){
+selectData (item){
+     if (this.state.color != 'white'){
+
+         this.setState({color: 'white'})
+
+         let lugar = this.state.contactos.findIndex((objeto) => {
+          return objeto.login.uuid === item.login.uuid;
+        })
+
+         let eliminar = this.state.importar.splice(lugar, 1)
+         console.log(eliminar)
+         this.setState({importar: eliminar})
+     
+        }else{
+         this.setState({color:'#8ed7e8'}) 
+         let agregar = this.state.importar.push(item)
+         console.log(agregar)
+
+     }
+ }
+
+  async storeData(){
+    try{
+     const jsonContacts = JSON.stringify(this.state.prueba)
+     await AsyncStorage.setItem('contactos', jsonContacts);}
+
+    catch(e){
+      console.log(e)
+     }
+ }
+
+//async storeData(value){
   
-//   let lugar = this.state.contactos.findIndex((objeto) => {
-//     return objeto.login.uuid === posicion;
-//   })
+  //try{
 
-//     if (this.state.color != 'white'){
-
-//         this.setState({color: 'white'})
-//         let eliminar = this.state.prueba.splice(lugar, 1)
-//         console.log(eliminar)
-
-//     }else{
-//         this.setState({color:'blue'}) 
-//         let agregar = this.state.prueba.push(posicion)
-//         console.log(agregar)
-
-//     }
-// }
-
-//  async storeData(){
-//    try{
-//     const jsonContacts = JSON.stringify(this.state.prueba)
-//     await AsyncStorage.setItem('contactos', jsonContacts); }
-//    catch(e){
-//      console.log(e)
-//     }
-// }
-
-async storeData(value){
-  
-  try{
-
-    const obtenerContactos = await AsyncStorage.getItem("contactos")
+    //const obtenerContactos = await AsyncStorage.getItem("contactos")
     
-    let almacenar;
+    //let almacenar;
 
-    if (obtenerContactos != null) {
-        almacenar = JSON.parse(obtenerContactos)
+    //if (obtenerContactos != null) {
+        //almacenar = JSON.parse(obtenerContactos)
     
-      }else{
-        almacenar = []
-    }
+      //}else{
+        //almacenar = []
+    //}
 
-    almacenar.push(value)
+    //almacenar.push(value)
     
-    const jsonContacts = JSON.stringify(almacenar);
+    //const jsonContacts = JSON.stringify(almacenar);
 
     //queremos que se pusheen los contactos en un array asi no se pisan. 
     
-    await AsyncStorage.setItem("contactos", jsonContacts);
+    //await AsyncStorage.setItem("contactos", jsonContacts);
 
-  } catch(e) {
-    console.log(e)
-  }
-}
+  //} catch(e) {
+    //console.log(e)
+  //}
+//}
 
   render (){
     return (
@@ -103,21 +105,23 @@ async storeData(value){
 
         { this.state.activity
         ? <ActivityIndicator
-        color = "blue"
-        size = {60}
-        />
+        color={"blue"}
+        size={60}/>
+
         : <View><Container 
         contactos={this.state.contactos} 
         guardar={this.storeData}
-        cambiarColor={this.selectData}></Container>
+        seleccionar={this.selectData}
+        color={this.state.color}></Container>
         </View>
         }
       
-      <Container
+      {/* <Container
       contactos={this.state.contactos} 
       guardar={this.storeData}
-      eliminar={this.deleteData}
-      ></Container>
+      //eliminar={this.deleteData}
+      seleccionar={this.selectData}
+      ></Container> */}
     </View>
   
   

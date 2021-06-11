@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import {stylesContainer} from '../styles/Styles';
 import Tarjeta from './Tarjeta';
-import Modal from './Modal'
-
 
 import { 
-  TouchableOpacity,
+  FlatList,
   View,
   Text,
-  FlatList,
+  TouchableOpacity,
 } from "react-native";
 
 export default class Container extends Component {
@@ -16,8 +13,7 @@ export default class Container extends Component {
 constructor(props) {
   super(props);
   this.state = {
-    color: 'white'
-    
+      
   }
 }   
 
@@ -25,8 +21,9 @@ keyExtractor = (item, idx) => item.login.uuid
 
 renderItem = ({item}) => {
   return(
-    <View style={{backgroundColor:this.state.color}}>
-    <View style={stylesContainer.container}>
+    
+    <TouchableOpacity style={{backgroundColor:this.props.color}} onPress={() => this.props.seleccionar(item)}>
+        
         <Tarjeta 
           nombre={item.name.first} 
           apellido={item.name.last} 
@@ -39,13 +36,8 @@ renderItem = ({item}) => {
           registro={item.registered.date}
           telefono={item.cell}
         />
-        
-        <TouchableOpacity onPress={() => this.props.guardar(item)}><Text>Guardar</Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.cambiarColor(item)}><Text>Guardar</Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.eliminar(item)}><Text>Eliminar</Text></TouchableOpacity>
 
-      </View>
-      </View>
+      </TouchableOpacity>
     )
   }
 
@@ -54,12 +46,11 @@ renderItem = ({item}) => {
     return(
       <View>
         <FlatList
-        data={this.props.contactos}
-        keyExtractor={this.keyExtractor}
-        renderItem={this.renderItem}
-        >
-        </FlatList>
-        {/* <Modal/> */}
+          data={this.props.contactos}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
+        />
+        <TouchableOpacity onPress={() => this.props.guardar(item)}><Text>Guardar contactos seleccionados</Text></TouchableOpacity>
       </View>
     )
   }
