@@ -16,7 +16,7 @@ export default class Container extends Component {
 constructor(props) {
   super(props);
   this.state = {
-    
+    color: 'white'
     
   }
 }   
@@ -25,6 +25,7 @@ keyExtractor = (item, idx) => item.login.uuid
 
 renderItem = ({item}) => {
   return(
+    <View style={{backgroundColor:this.state.color}}>
     <View style={stylesContainer.container}>
         <Tarjeta 
           nombre={item.name.first} 
@@ -40,8 +41,10 @@ renderItem = ({item}) => {
         />
         
         <TouchableOpacity onPress={() => this.props.guardar(item)}><Text>Guardar</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.cambiarColor(item)}><Text>Guardar</Text></TouchableOpacity>
         <TouchableOpacity onPress={() => this.props.eliminar(item)}><Text>Eliminar</Text></TouchableOpacity>
 
+      </View>
       </View>
     )
   }

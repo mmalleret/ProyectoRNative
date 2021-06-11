@@ -16,7 +16,7 @@ const stylesContainer = StyleSheet.create({
 
 const stylesTarjeta = StyleSheet.create({
     container: {
-        fle: 1,
+        flex: 1,
         justifyContent: 'center', 
         alignItems: 'center'
     },
@@ -27,7 +27,7 @@ const stylesTarjeta = StyleSheet.create({
     diseñoTarjeta: {
         backgroundColor: "#8ed7e8",
         borderWidth: 1,
-        borderRadious: 20,
+        borderRadius: 20,
         margin: 5,
         width: 250,
         height: 200,

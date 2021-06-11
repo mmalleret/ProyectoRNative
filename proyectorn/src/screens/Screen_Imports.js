@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Container from '../components/Container';
-import {getDataFromApi} from '../api/getDataFromApi';
+import {getData} from '../api/RandomUser';
 
 import { 
-  Text,
-  TouchableOpacity,
+  // Text,
+  // TouchableOpacity,
   View,
   ActivityIndicator
 } from "react-native";
@@ -17,13 +17,50 @@ constructor() {
   this.state = {
     contactos: [],
     importar:[],
-    activity: false
+    activity: false,
+    prueba: [],
   }
 }  
 
+
+async getDataFromApi() {
+    this.setState({activity: true})
+    let usuarios = await getData();
+    this.setState({contactos: usuarios, activity: false})
+}
+
 componentDidMount() {
-  getDataFromApi();
+  getDataFromApi() 
 } 
+
+// async selectData (posicion){
+  
+//   let lugar = this.state.contactos.findIndex((objeto) => {
+//     return objeto.login.uuid === posicion;
+//   })
+
+//     if (this.state.color != 'white'){
+
+//         this.setState({color: 'white'})
+//         let eliminar = this.state.prueba.splice(lugar, 1)
+//         console.log(eliminar)
+
+//     }else{
+//         this.setState({color:'blue'}) 
+//         let agregar = this.state.prueba.push(posicion)
+//         console.log(agregar)
+
+//     }
+// }
+
+//  async storeData(){
+//    try{
+//     const jsonContacts = JSON.stringify(this.state.prueba)
+//     await AsyncStorage.setItem('contactos', jsonContacts); }
+//    catch(e){
+//      console.log(e)
+//     }
+// }
 
 async storeData(value){
   
@@ -57,12 +94,12 @@ async storeData(value){
     return (
     <View>
       
-      <View>
+      {/* <View>
         <Text>¿Cuantos contactos desea añadir?</Text>
         <TouchableOpacity onPress={() => this.getDataFromApi()}>
           <Text>Importar</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
 
         { this.state.activity
         ? <ActivityIndicator
@@ -71,7 +108,8 @@ async storeData(value){
         />
         : <View><Container 
         contactos={this.state.contactos} 
-        guardar={this.storeData}></Container>
+        guardar={this.storeData}
+        cambiarColor={this.selectData}></Container>
         </View>
         }
       
