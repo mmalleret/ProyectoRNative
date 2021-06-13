@@ -29,7 +29,7 @@ renderItem = ({item}) => {
           nombre={item.name.first} 
           apellido={item.name.last} 
           id={item.login.uuid} 
-          foto={item.picture.large} 
+          foto={item.picture.thumbnail} 
           edad={item.dob.age} 
           mail={item.email} 
           fecha={item.dob.date}  
@@ -39,6 +39,7 @@ renderItem = ({item}) => {
         />
 
       </TouchableOpacity>
+
     )
   }
 
@@ -51,7 +52,7 @@ renderItem = ({item}) => {
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
         />
-        <TouchableOpacity onPress={() => this.props.guardar()}><Text>Guardar contactos seleccionados</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.activarModal}><Text>activarModal</Text></TouchableOpacity>
       </View>
     )
   }

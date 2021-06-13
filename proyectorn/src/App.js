@@ -22,17 +22,17 @@ constructor() {
 
   render (){
     return (
-    <View style={appStyle.layout}>
+    <View style={{flex: 1}}>
 
-      <View style={appStyle.layout}>
+      <View>
         <Navbar/>
       </View>
 
       <View style={appStyle.layout}>
-        <Screen_Imports/>
+        <Screen_ViewImportedCards/>
       </View>
 
-      <View style={appStyle.layout}>
+      <View>
         <Footer/>
       </View>
     

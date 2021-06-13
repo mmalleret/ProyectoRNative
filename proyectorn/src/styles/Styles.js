@@ -2,10 +2,14 @@ import {StyleSheet} from 'react-native';
 
 const appStyle = StyleSheet.create({
     layout: {
+        flex: 3
+    }
+})
+const navStyle = StyleSheet.create({
+    layout: {
         flex: 1
     }
 })
-
 
 const stylesTarjeta = StyleSheet.create({
     container: {
@@ -26,14 +30,18 @@ const stylesTarjeta = StyleSheet.create({
         height: 200,
         padding: 10
     },
+    image:{
+        width: 50, 
+        height: 50,
+    }
 })
 
-const navbarFooterStyle = StyleSheet.create({
+const navbarStyle = StyleSheet.create({
     contentStyle: {
         backgroundColor: "lightblue",
         justifyContent: "center",
         alignItems: "center", 
-        marginTop: 50, 
+        //marginTop: 50, 
         fontSize:40, 
         padding:30,
     },
@@ -43,6 +51,21 @@ const navbarFooterStyle = StyleSheet.create({
       }
       
 })
-export { stylesTarjeta, navbarFooterStyle, appStyle}
+
+const footerStyle = StyleSheet.create({
+    contentStyle: {
+        backgroundColor: "lightblue",
+        justifyContent: "center",
+        alignItems: "center", 
+        fontSize:40, 
+        padding:30,
+    },
+    textStyle: {
+        fontSize: 20,
+        color: "black",
+      }
+      
+})
+export { stylesTarjeta, navbarStyle, appStyle, footerStyle}
 
 

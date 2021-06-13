@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {navbarFooterStyle} from '../styles/Styles';
+import {navbarStyle} from '../styles/Styles';
 
 import { 
   View,
@@ -18,8 +18,8 @@ constructor() {
 
   render (){
     return (
-    <View style={navbarFooterStyle.contentStyle}>
-        <Text style={navbarFooterStyle.textStyle}>Nemo</Text>
+    <View style={navbarStyle.contentStyle}>
+        <Text style={navbarStyle.textStyle}>Nemo</Text>
     </View>
   
   

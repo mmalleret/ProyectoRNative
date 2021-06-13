@@ -6,6 +6,7 @@ import {getData} from '../api/RandomUser';
 import { 
   View,
   ActivityIndicator,
+  TouchableOpacity,
 } from "react-native";
 
 export default class Screen_Imports extends Component {
@@ -105,8 +106,8 @@ async storeData(){
         : <View><Container 
         contactos={this.state.contactos} 
         color={this.state.color}
-        seleccionar={this.selectData}
-        guardar={this.storeData}/>
+        seleccionar={this.selectData}/>
+        <View><TouchableOpacity onPress={() => this.storeData()}><Text>Guardar contactos seleccionados</Text></TouchableOpacity></View>
         </View>
         }
   
