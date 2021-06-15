@@ -39,6 +39,20 @@ async getData() {
   }
 }
 
+// async filterData(id) {
+//   try {
+
+//     let filterContacto = this.state.contactosImportados.filter((dato) =>{
+//       (dato.name.first === this.state.nombre) 
+//    })
+//    this.setState({ 
+//      contactosImportados: filterContacto 
+//     })
+//   } catch(e) {
+//     console.log(e)
+//   }
+// }
+
 async deleteData(id) {
   try {
     let deleteContacto = this.state.almacenar.filter((dato) => {return dato.login.uuid !== id})
@@ -66,6 +80,10 @@ showModal(){
       <TouchableOpacity onPress={this.getData.bind(this)}>
         <Text>Contactos importados</Text>
       </TouchableOpacity>
+
+      {/* <TouchableOpacity onPress={this.filterData.bind(this)}>
+        <Text>Filtrar</Text>
+      </TouchableOpacity> */}
 
       </View>
 
