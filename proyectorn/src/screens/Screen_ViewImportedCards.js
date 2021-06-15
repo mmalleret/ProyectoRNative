@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Container from '../components/Container';
+import Tarjeta from '../components/Tarjeta';
 
 
 import { 
@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
   Modal,
+  FlatList,
 } from "react-native";
 
 export default class Screen_ViewImportedCards extends Component {
@@ -55,19 +56,60 @@ showModal(){
 //Sobreeescribir contactos almacenando todos los contactos menos el que elimine -> setItem(contactos)
 // saveItem pero la key no es contacto sino borrados (cambiar save por set)
 
+keyExtractor = (item, idx) => item.login.uuid
+  renderItem = ({item}) => {
+    return(
+
+        <View>
+            
+          <Tarjeta 
+            nombre={item.name.first} 
+            apellido={item.name.last} 
+            id={item.login.uuid} 
+            foto={item.picture.thumbnail} 
+            edad={item.dob.age} 
+            mail={item.email} 
+            fecha={item.dob.date}  
+            direccion={item.location} 
+            registro={item.registered.date}
+            telefono={item.cell}
+          />
+
+          <TouchableOpacity onPress={() => this.deleteData()}><Text>Eliminar</Text></TouchableOpacity>
+          <TouchableOpacity onPress={this.showModal.bind(this)}><Text>Activar Modal</Text></TouchableOpacity>
+        </View>
+  
+      )
+    }
+
+
+
   render (){
     return (
     <View>
+      
       <View>
 
-      <Container contactos={this.state.contactosImportados}
-      activarModal={this.showModal}/>
+      <View>
+          <FlatList
+          data={this.state.contactosImportados}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
+          />
+      </View>
 
       <TouchableOpacity onPress={this.getData.bind(this)}>
         <Text>Contactos importados</Text>
       </TouchableOpacity>
 
       </View>
+
+
+
+
+
+
+
 
       {/* este es el modal */}
       <Modal visible={this.state.showModal} transparent={true} animationType="fade">
@@ -77,6 +119,7 @@ showModal(){
         </Text>
         </View>
       </Modal>
+
     </View>
   
   
