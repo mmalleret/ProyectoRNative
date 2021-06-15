@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Container from '../components/Container';
+//import Container from '../components/Container';
+import Tarjeta from '../components/Tarjeta';
 import {getData} from '../api/RandomUser';
 
 import { 
   View,
   ActivityIndicator,
   TouchableOpacity,
+  Text,
+  FlatList,
 } from "react-native";
 
 export default class Screen_Imports extends Component {
@@ -15,7 +18,7 @@ constructor() {
   super();
   this.state = {
     contactos: [],
-    importar:[],
+    almacenar:[],
     activity: false,
     color: "white",
   }
@@ -35,64 +38,90 @@ componentDidMount() {
   this.getDataFromApi() 
 } 
 
-selectData (item){
-     if (this.state.color != 'white'){
+//selectData (item, color){
+//     if (color != 'white'){
+//
+//       this.setState({color: 'white'})
+//
+//         let lugar = this.state.contactos.findIndex((objeto) => {
+//            return objeto.login.uuid === item.login.uuid;
+//          })
 
-         this.setState({color: 'white'})
-
-          let lugar = this.state.contactos.findIndex((objeto) => {
-            return objeto.login.uuid === item.login.uuid;
-          })
-
-          let eliminarContacto = this.state.importar.splice(lugar, 1)
-          console.log(eliminar)
-          this.setState({importar: eliminarContacto})
+//          let eliminarContacto = this.state.importar.splice(lugar, 1)
+//          console.log(eliminar)
+//          this.setState({importar: eliminarContacto})
      
-     }else{
+//     }else{
 
-         this.setState({color:'#8ed7e8'}) 
-         let agregar = this.state.importar.push(item)
-         console.log(agregar)
-        }
- }
+//         this.setState({color:'#8ed7e8'}) 
+//         let agregar = this.state.importar.push(item)
+//         console.log(agregar)
+//        }
+// }
 
-async storeData(){
-  try{
-     const jsonContacts = JSON.stringify(this.state.importar)
-     await AsyncStorage.setItem('contactos', jsonContacts);
-  }
-  catch(e){
-      console.log(e)
-  }
- }
+//async storeData(){
+//  try{
+//     const jsonContacts = JSON.stringify(this.state.importar)
+//     await AsyncStorage.setItem('contactos', jsonContacts);
+//  }
+//  catch(e){
+//      console.log(e)
+//  }
+// }
 
-//async storeData(value){
+async storeData(value){
   
-  //try{
+  try{
 
-    //const obtenerContactos = await AsyncStorage.getItem("contactos")
+    const obtenerContactos = await AsyncStorage.getItem("contactos")
     
-    //let almacenar;
+    let almacenar;
 
-    //if (obtenerContactos != null) {
-        //almacenar = JSON.parse(obtenerContactos)
+    if (obtenerContactos != null) {
+        almacenar = JSON.parse(obtenerContactos)
     
-      //}else{
-        //almacenar = []
-    //}
+      }else{
+        almacenar = []
+    }
 
-    //almacenar.push(value)
+    almacenar.push(value)
     
-    //const jsonContacts = JSON.stringify(almacenar);
+    const jsonContacts = JSON.stringify(almacenar);
 
     //queremos que se pusheen los contactos en un array asi no se pisan. 
     
-    //await AsyncStorage.setItem("contactos", jsonContacts);
+    await AsyncStorage.setItem("contactos", jsonContacts);
 
-  //} catch(e) {
-    //console.log(e)
-  //}
-//}
+  } catch(e) {
+    console.log(e)
+  }
+}
+
+  keyExtractor = (item, idx) => item.login.uuid
+  renderItem = ({item}) => {
+    return(
+
+        <View>
+            
+          <Tarjeta 
+            nombre={item.name.first} 
+            apellido={item.name.last} 
+            id={item.login.uuid} 
+            foto={item.picture.thumbnail} 
+            edad={item.dob.age} 
+            mail={item.email} 
+            fecha={item.dob.date}  
+            direccion={item.location} 
+            registro={item.registered.date}
+            telefono={item.cell}
+          />
+
+          <TouchableOpacity onPress={() => this.storeData()}><Text>Guardar</Text></TouchableOpacity>
+        </View>
+  
+      )
+    }
+  
 
   render (){
     return (
@@ -103,12 +132,13 @@ async storeData(){
         color={"blue"}
         size={60}/>
 
-        : <View><Container 
-        contactos={this.state.contactos} 
-        color={this.state.color}
-        seleccionar={this.selectData}/>
-        <View><TouchableOpacity onPress={() => this.storeData()}><Text>Guardar contactos seleccionados</Text></TouchableOpacity></View>
-        </View>
+        : <View>
+          <FlatList
+          data={this.state.contactos}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
+          />
+          </View>
         }
   
     </View>
