@@ -17,6 +17,7 @@ constructor() {
   super();
   this.state = {
     contactosImportados: [],
+    papelera:[],
     showModal: false,
 
   }
@@ -25,9 +26,10 @@ constructor() {
 async getData() {
   try{
     
-    const resultado = await AsyncStorage.getItem('contactos');
-    
+    const resultado = await AsyncStorage.getItem("contactos");
+
     const jsonValue = JSON.parse(resultado)
+    
     if (Array.isArray(jsonValue)) {
       this.setState({contactosImportados: jsonValue})
     } else{
@@ -54,10 +56,17 @@ async getData() {
 //   }
 // }
 
-async deleteData(id) {
+async deleteData(item) {
   try {
-    let deleteContacto = this.state.almacenar.filter((dato) => {return dato.login.uuid !== id})
-    this.setState({almacenar: deleteContacto})
+    let deleteContacto = this.state.contactosImportados.filter((dato) => {return dato.login.uuid !== item.login.uuid})
+    this.setState({contactosImportados: deleteContacto})
+
+    this.state.papelera.push(item)
+
+    const jsonEliminados = JSON.stringify(this.state.papelera)
+    console.log(jsonEliminados) 
+  
+    await AsyncStorage.setItem("eliminados", jsonEliminados);
     
   } catch(e) {
     console.log(e)
@@ -70,7 +79,7 @@ showModal(){
 //Sobreeescribir contactos almacenando todos los contactos menos el que elimine -> setItem(contactos)
 // saveItem pero la key no es contacto sino borrados (cambiar save por set)
 
-keyExtractor = (item, idx) => item.login.uuid
+  keyExtractor = (item, idx) => idx.toString();
   renderItem = ({item}) => {
     return(
 
@@ -78,8 +87,7 @@ keyExtractor = (item, idx) => item.login.uuid
             
           <Tarjeta 
             nombre={item.name.first} 
-            apellido={item.name.last} 
-            id={item.login.uuid} 
+            apellido={item.name.last}  
             foto={item.picture.thumbnail} 
             edad={item.dob.age} 
             mail={item.email} 
@@ -89,8 +97,8 @@ keyExtractor = (item, idx) => item.login.uuid
             telefono={item.cell}
           />
 
-          <TouchableOpacity onPress={() => this.deleteData()}><Text>Eliminar</Text></TouchableOpacity>
-          <TouchableOpacity onPress={this.showModal.bind(this)}><Text>Activar Modal</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => this.deleteData(item)}><Text>Eliminar</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => this.showModal.bind(this)}><Text>Activar Modal</Text></TouchableOpacity>
         </View>
   
       )
@@ -99,12 +107,17 @@ keyExtractor = (item, idx) => item.login.uuid
 
 
   render (){
+    //console.log("------")
+    //console.log(this.state.contactosImportados)
     return (
     <View>
       
       <View>
 
       <View>
+          <TouchableOpacity onPress={this.getData.bind(this)}>
+            <Text>Contactos importados</Text>
+          </TouchableOpacity>
           <FlatList
           data={this.state.contactosImportados}
           keyExtractor={this.keyExtractor}
@@ -112,9 +125,7 @@ keyExtractor = (item, idx) => item.login.uuid
           />
       </View>
 
-      <TouchableOpacity onPress={this.getData.bind(this)}>
-        <Text>Contactos importados</Text>
-      </TouchableOpacity>
+      
 
       {/* <TouchableOpacity onPress={this.filterData.bind(this)}>
         <Text>Filtrar</Text>

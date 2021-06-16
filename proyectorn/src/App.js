@@ -29,7 +29,7 @@ constructor() {
       </View>
 
       <View style={appStyle.layout}>
-        <Screen_ViewImportedCards/>
+        < Screen_ViewImportedCards/>
       </View>
 
       <View>
