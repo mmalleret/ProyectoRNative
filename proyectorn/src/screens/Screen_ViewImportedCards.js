@@ -41,11 +41,14 @@ async getData() {
     console.log(e)
   }
 }
+//Necesitamos 1 input o 3?
+//Porque tengo que hacer todos los casos? --> mirar react
 
-// async filterData(id) {
+// async filterData() {
 //   try {
 
-//     let filterContacto = this.state.contactosImportados.filter((dato) =>{
+//     let filtrar = this.state.contactosImportados.filter((dato) => {
+//        return()
 //       (dato.name.first === this.state.nombre) 
 //    })
 //    this.setState({ 
@@ -53,6 +56,12 @@ async getData() {
 //     })
 //   } catch(e) {
 //     console.log(e)
+//   }
+// }
+//función filtar nombre 
+// filterName(nombre){
+//   if(nombre.length !== 0){
+//     filtrame los contactos importados en su estado
 //   }
 // }
 
