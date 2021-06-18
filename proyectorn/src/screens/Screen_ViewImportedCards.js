@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Modal,
   FlatList,
+  TextInput,
 } from "react-native";
 
 export default class Screen_ViewImportedCards extends Component {
@@ -44,8 +45,22 @@ async getData() {
 //Necesitamos 1 input o 3?
 //Porque tengo que hacer todos los casos? --> mirar react
 
-// async filterData() {
-//   try {
+async filterData(texto) {
+
+  let filtrar = this.state.contactosImportados.filter((dato) => {
+  // let valor = dato.toUpperCase();
+  
+  if( 
+      dato.first.name.toUpperCase().includes(texto.toUpperCase()) ||
+      dato.last.name.toUpperCase().includes(texto.toUpperCase())  ||
+      dato.city.toUpperCase().includes(texto.toUpperCase()) ||
+      dato.country.toUpperCase().includes(texto.toUpperCase())
+
+    ) return dato;
+  })
+  }
+  //   try {
+  
 
 //     let filtrar = this.state.contactosImportados.filter((dato) => {
 //        return()
@@ -57,7 +72,7 @@ async getData() {
 //   } catch(e) {
 //     console.log(e)
 //   }
-// }
+
 //función filtar nombre 
 // filterName(nombre){
 //   if(nombre.length !== 0){
@@ -131,12 +146,13 @@ showModal(){
           />
       </View>
 
-      
-
+      <View>
+      <TextInput style={{backgroundColor: "red"}} onChangeText={ value => this.filterData(value)}></TextInput>
       {/* <TouchableOpacity onPress={this.filterData.bind(this)}>
         <Text>Filtrar</Text>
       </TouchableOpacity> */}
-
+      </View>
+        
       </View>
 
 
