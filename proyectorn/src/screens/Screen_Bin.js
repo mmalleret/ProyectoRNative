@@ -69,7 +69,7 @@ render (){
 
     <View>
         <TouchableOpacity onPress={this.getData.bind(this)}>
-          <Text>Contactos importados</Text>
+          <Text>Contactos eliminados</Text>
         </TouchableOpacity>
         <FlatList
         data={this.state.contactosEliminados}
