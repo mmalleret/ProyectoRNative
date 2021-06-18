@@ -36,6 +36,7 @@ getDataFromApi(numero) {
   
 }
 async componentDidMount(){
+  await AsyncStorage.removeItem("contactos")
   let obtenerContactos = await AsyncStorage.getItem("contactos")
   obtenerContactos = JSON.parse(obtenerContactos)
   

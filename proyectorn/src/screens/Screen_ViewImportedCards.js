@@ -20,7 +20,7 @@ constructor() {
     contactosImportados: [],
     papelera:[],
     showModal: false,
-
+    contactosBackup: []
   }
 }  
 
@@ -32,9 +32,9 @@ async getData() {
     const jsonValue = JSON.parse(resultado)
     
     if (Array.isArray(jsonValue)) {
-      this.setState({contactosImportados: jsonValue})
+      this.setState({contactosImportados: jsonValue, contactosBackup:jsonValue})
     } else{
-      this.setState({contactosImportados:[jsonValue]})
+      this.setState({contactosImportados:[jsonValue], contactosBackup:[jsonValue]})
     }
     
 
@@ -47,17 +47,19 @@ async getData() {
 
 async filterData(texto) {
 
+
   let filtrar = this.state.contactosImportados.filter((dato) => {
   // let valor = dato.toUpperCase();
   
   if( 
-      dato.first.name.toUpperCase().includes(texto.toUpperCase()) ||
-      dato.last.name.toUpperCase().includes(texto.toUpperCase())  ||
-      dato.city.toUpperCase().includes(texto.toUpperCase()) ||
-      dato.country.toUpperCase().includes(texto.toUpperCase())
+      dato.name.first.toUpperCase().includes(texto.toUpperCase()) ||
+      dato.name.last.toUpperCase().includes(texto.toUpperCase())  ||
+      dato.location.city.toUpperCase().includes(texto.toUpperCase()) ||
+      dato.location.country.toUpperCase().includes(texto.toUpperCase())
 
     ) return dato;
   })
+  this.setState({contactosImportados: filtrar})
   }
   //   try {
   
@@ -83,14 +85,20 @@ async filterData(texto) {
 async deleteData(item) {
   try {
     let deleteContacto = this.state.contactosImportados.filter((dato) => {return dato.login.uuid !== item.login.uuid})
-    this.setState({contactosImportados: deleteContacto})
+    let backup = this.state.contactosBackup.filter((dato) => {return dato.login.uuid !== item.login.uuid})
+
+    this.setState({contactosImportados: deleteContacto, contactosBackup : backup})
 
     this.state.papelera.push(item)
 
     const jsonEliminados = JSON.stringify(this.state.papelera)
     console.log(jsonEliminados) 
-  
     await AsyncStorage.setItem("eliminados", jsonEliminados);
+
+    const jsonEliminarAsync = JSON.stringify(backup)
+    console.log(jsonEliminarAsync) 
+    await AsyncStorage.setItem("contactos", jsonEliminarAsync);
+
     
   } catch(e) {
     console.log(e)
@@ -147,6 +155,8 @@ showModal(){
       </View>
 
       <View>
+      <TextInput style={{backgroundColor: "red"}} onChangeText={ value => this.filterData(value)}></TextInput>
+      <TextInput style={{backgroundColor: "red"}} onChangeText={ value => this.filterData(value)}></TextInput>
       <TextInput style={{backgroundColor: "red"}} onChangeText={ value => this.filterData(value)}></TextInput>
       {/* <TouchableOpacity onPress={this.filterData.bind(this)}>
         <Text>Filtrar</Text>
