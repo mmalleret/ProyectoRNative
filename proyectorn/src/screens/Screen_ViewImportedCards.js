@@ -85,8 +85,6 @@ async deleteData(item) {
 showModal(){
   this.setState({showModal: true})
 }
-//Sobreeescribir contactos almacenando todos los contactos menos el que elimine -> setItem(contactos)
-// saveItem pero la key no es contacto sino borrados (cambiar save por set)
 
   keyExtractor = (item, idx) => idx.toString();
   renderItem = ({item}) => {
@@ -116,8 +114,7 @@ showModal(){
 
 
   render (){
-    //console.log("------")
-    //console.log(this.state.contactosImportados)
+
     return (
     <View>
       
@@ -150,13 +147,13 @@ showModal(){
 
 
       {/* este es el modal */}
-      <Modal visible={this.state.showModal} transparent={true} animationType="fade">
+      {/* <Modal visible={this.state.showModal} transparent={true} animationType="fade">
         <View>
         <Text>Hola funciono</Text>
         <Text onPress={() => this.setState({showModal: false})}>X
         </Text>
         </View>
-      </Modal>
+      </Modal> */}
 
     </View>
   

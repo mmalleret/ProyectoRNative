@@ -121,7 +121,9 @@ async storeData(value){
           <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
           <Text>Añadir</Text>
           </TouchableOpacity>
+          {/* cuando haces una nueva importación de la api, no se agregan a las tarjetas anteriores, sino que llega un lote nuevo. esto hay que cambiarlo */}
           </View>
+          {/* acá va el alert con this.state.cantidad */}
           </View>
           
         }
