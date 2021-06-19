@@ -20,7 +20,9 @@ constructor() {
     contactosImportados: [],
     papelera:[],
     showModal: false,
-    contactosBackup: []
+    contactosBackup: [],
+    textHandler: "",
+    arrayComentarios: [],
   }
 }  
 
@@ -42,14 +44,11 @@ async getData() {
     console.log(e)
   }
 }
-//Necesitamos 1 input o 3?
-//Porque tengo que hacer todos los casos? --> mirar react
 
 async filterData(texto) {
 
 
   let filtrar = this.state.contactosImportados.filter((dato) => {
-  // let valor = dato.toUpperCase();
   
   if( 
       dato.name.first.toUpperCase().includes(texto.toUpperCase()) ||
@@ -61,26 +60,7 @@ async filterData(texto) {
   })
   this.setState({contactosImportados: filtrar})
   }
-  //   try {
-  
 
-//     let filtrar = this.state.contactosImportados.filter((dato) => {
-//        return()
-//       (dato.name.first === this.state.nombre) 
-//    })
-//    this.setState({ 
-//      contactosImportados: filterContacto 
-//     })
-//   } catch(e) {
-//     console.log(e)
-//   }
-
-//función filtar nombre 
-// filterName(nombre){
-//   if(nombre.length !== 0){
-//     filtrame los contactos importados en su estado
-//   }
-// }
 
 async deleteData(item) {
   try {
@@ -105,9 +85,17 @@ async deleteData(item) {
   }
 }
 
-showModal(){
-  this.setState({showModal: true})
-}
+//async comment(){
+  
+//  let comentario = this.state.textHandler;
+
+//  let agregar = arrayComentarios.push(comentario)
+
+//  console.log(agregar)
+  
+//}
+
+
 
   keyExtractor = (item, idx) => idx.toString();
   renderItem = ({item}) => {
@@ -128,7 +116,7 @@ showModal(){
           />
 
           <TouchableOpacity onPress={() => this.deleteData(item)}><Text>Eliminar</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => this.showModal.bind(this)}><Text>Activar Modal</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => this.setState({showModal: true})}><Text>Activar Modal</Text></TouchableOpacity>
         </View>
   
       )
@@ -158,28 +146,26 @@ showModal(){
       <TextInput style={{backgroundColor: "red"}} onChangeText={ value => this.filterData(value)}></TextInput>
       <TextInput style={{backgroundColor: "red"}} onChangeText={ value => this.filterData(value)}></TextInput>
       <TextInput style={{backgroundColor: "red"}} onChangeText={ value => this.filterData(value)}></TextInput>
-      {/* <TouchableOpacity onPress={this.filterData.bind(this)}>
-        <Text>Filtrar</Text>
-      </TouchableOpacity> */}
       </View>
         
       </View>
 
 
-
-
-
-
-
-
       {/* este es el modal */}
-      {/* <Modal visible={this.state.showModal} transparent={true} animationType="fade">
+      <Modal visible={this.state.showModal} style={{backgroundColor: "white"}}  animationType="fade">
         <View>
+        <Text onPress={() => this.setState({showModal: false})}>X</Text>
         <Text>Hola funciono</Text>
-        <Text onPress={() => this.setState({showModal: false})}>X
-        </Text>
+        
+        
+        
+        {/* <Text>Añadir comentario: {this.state.textHandler}</Text>
+        <TextInput onChangeText={ value => this.setState({textHandler: value})} ></TextInput>
+        <TouchableOpacity onPress={this.comment.bind(this)}><Text>lo meto</Text></TouchableOpacity> */}
+
+
         </View>
-      </Modal> */}
+      </Modal>
 
     </View>
   

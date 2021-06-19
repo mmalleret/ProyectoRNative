@@ -19,6 +19,7 @@ constructor() {
   super();
   this.state = {
     pedido: "",
+    contactosBackup: [],
     contactos: [],
     cantidad: " ",
     almacenar:[],
