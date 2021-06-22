@@ -10,7 +10,7 @@ import {
   FlatList,
 } from "react-native";
 
-export default class Screen_ViewImportedCards extends Component {
+export default class Bin extends Component {
   
 constructor() {
   super();

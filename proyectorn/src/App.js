@@ -1,45 +1,30 @@
+import 'react-native-gesture-handler';
 import React, { Component } from 'react';
-import {appStyle} from './styles/Styles';
-import Navbar from './components/Navbar';
-import Screen_ViewImportedCards from './screens/Screen_ViewImportedCards';
-import Screen_Imports from './screens/Screen_Imports'
-import Footer from './components/Footer'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-
-import { 
+import {
   View,
-} from "react-native";
+  Text
+} from 'react-native';
+import { Menu } from './screens/Menu';
+import { Imports } from './screens/Imports';
+import { ViewImportedCards } from './screens/ViewImportedCards';
+import { Bin } from './screens/Bin';
+
+const Stack = createStackNavigator();
 
 export default class App extends Component {
-  
-constructor() {
-  super();
-  this.state = {
-
-  }
-}  
-
 
   render (){
     return (
-    <View style={{flex: 1}}>
-
-      <View>
-        <Navbar/>
-      </View>
-
-      <View style={appStyle.layout}>
-        <Screen_Imports/>
-      </View>
-
-      <View>
-        <Footer/>
-      </View>
-    
-    </View>
-    
-  
-  
-
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Menu" component={ Menu } />
+          <Stack.Screen name="Imports" component={ Imports } />
+          <Stack.Screen name="ViewImportedCards" component={ ViewImportedCards } />
+          <Stack.Screen name="Bin" component={ Bin } />
+        </Stack.Navigator>
+      </NavigationContainer>
   )}  
   }

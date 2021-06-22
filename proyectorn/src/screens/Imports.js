@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-//import Container from '../components/Container';
 import Tarjeta from '../components/Tarjeta';
 import {getData} from '../api/RandomUser';
 
@@ -13,7 +12,7 @@ import {
   TextInput,
 } from "react-native";
 
-export default class Screen_Imports extends Component {
+export default class Imports extends Component {
   
 constructor() {
   super();
@@ -119,11 +118,11 @@ async storeData(value){
           renderItem={this.renderItem}
           />
           <View>
-          <TextInput onChangeText={ value => this.setState({pedido: value})}></TextInput>
-          <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
-          <Text>Añadir</Text>
-          </TouchableOpacity>
-          {/* cuando haces una nueva importación de la api, no se agregan a las tarjetas anteriores, sino que llega un lote nuevo. esto hay que cambiarlo */}
+            <TextInput onChangeText={ value => this.setState({pedido: value})}></TextInput>
+            <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
+            <Text>Añadir</Text>
+            </TouchableOpacity>
+            {/* cuando haces una nueva importación de la api, no se agregan a las tarjetas anteriores, sino que llega un lote nuevo. esto hay que cambiarlo */}
           </View>
           {/* acá va el alert con this.state.cantidad */}
           </View>

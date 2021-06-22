@@ -1,33 +1,17 @@
 import React, { Component } from 'react';
-import {styles} from '../Styles';
-
-import { 
+import {
   View,
-  Text,
-  
-} from "react-native";
+  Text
+} from 'react-native';
 
-export default class Menu extends Component {
-  
-constructor() {
-  super();
-  this.state = {
-
+export class Menu extends Component {
+  render() {
+    return(
+      <View>
+        <Text onPress={() => this.props.navigation.navigate('Imports')} >Import</Text>
+        <Text onPress={() => this.props.navigation.navigate('ViewImportedCards')} >View imported cards</Text>
+        <Text onPress={() => this.props.navigation.navigate('Bin')} >Bin</Text>
+      </View>
+    )
   }
-}  
-
-
-  render (){
-    return (
-    <View style={{backgroundColor: 'black'}}>
-      <View style={{flex: 1}}><Text style={{color:'white'}}>Buscar</Text></View>
-      <View style={{flex: 1}}><Text style={{color:'white'}}>Contactos</Text></View>
-      <View style={{flex: 1}}><Text style={{color:'white'}}>Importar</Text></View>
-      <View style={{flex: 1}}><Text style={{color:'white'}}>Papelera</Text></View>
-      <View style={{flex: 1}}><Text style={{color:'white'}}>Nosotras</Text></View>
-    </View>
-  
-  
-  )}  
-
 }
