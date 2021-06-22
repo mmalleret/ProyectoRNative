@@ -6,7 +6,7 @@ import {
   Text
 } from "react-native";
 
-export default class Acercade extends Component {
+export class Acercade extends Component {
   
 constructor() {
   super();

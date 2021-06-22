@@ -12,7 +12,7 @@ import {
   TextInput,
 } from "react-native";
 
-export default class Imports extends Component {
+export class Imports extends Component {
   
 constructor() {
   super();

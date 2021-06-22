@@ -14,7 +14,7 @@ import {
 } from "react-native";
 import { modalStyle } from '../styles/Styles';
 
-export default class ViewImportedCards extends Component {
+export class ViewImportedCards extends Component {
   
 constructor() {
   super();

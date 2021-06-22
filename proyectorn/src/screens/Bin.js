@@ -10,7 +10,7 @@ import {
   FlatList,
 } from "react-native";
 
-export default class Bin extends Component {
+export class Bin extends Component {
   
 constructor() {
   super();

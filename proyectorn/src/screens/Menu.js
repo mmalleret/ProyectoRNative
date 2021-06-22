@@ -5,12 +5,14 @@ import {
 } from 'react-native';
 
 export class Menu extends Component {
+  
   render() {
     return(
       <View>
-        <Text onPress={() => this.props.navigation.navigate('Imports')} >Import</Text>
-        <Text onPress={() => this.props.navigation.navigate('ViewImportedCards')} >View imported cards</Text>
-        <Text onPress={() => this.props.navigation.navigate('Bin')} >Bin</Text>
+        <Text>soy el menu hola</Text>
+        <Text onPress={ () => this.props.navigation.navigate('Imports')}>Importar</Text>
+        <Text onPress={ () => this.props.navigation.navigate('ViewImportedCards')}>Contactos</Text>
+        <Text onPress={ () => this.props.navigation.navigate('Bin')}>Papelera</Text>
       </View>
     )
   }
