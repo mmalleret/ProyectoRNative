@@ -1,17 +1,26 @@
 import {StyleSheet} from 'react-native';
 
-const appStyle = StyleSheet.create({
-    layout: {
-        flex: 3
-    }
-})
-const navStyle = StyleSheet.create({
-    layout: {
-        flex: 1
+const menuStyle = StyleSheet.create({
+    text: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 30
+
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f6c9ae'
+    },
+    item: {
+        justifyContent: 'center',
+        alignItems: 'center',  
+        height: 200
     }
 })
 
-const stylesTarjeta = StyleSheet.create({
+const cardStyle = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center', 
@@ -34,22 +43,6 @@ const stylesTarjeta = StyleSheet.create({
         width: 50, 
         height: 50,
     }
-})
-
-const navbarStyle = StyleSheet.create({
-    contentStyle: {
-        backgroundColor: "lightblue",
-        justifyContent: "center",
-        alignItems: "center", 
-        //marginTop: 50, 
-        fontSize:40, 
-        padding:30,
-    },
-    textStyle: {
-        fontSize: 20,
-        color: "black",
-      }
-      
 })
 
 const modalStyle = StyleSheet.create({
@@ -78,20 +71,6 @@ const modalStyle = StyleSheet.create({
     }
 })
 
-const footerStyle = StyleSheet.create({
-    contentStyle: {
-        backgroundColor: "lightblue",
-        justifyContent: "center",
-        alignItems: "center", 
-        fontSize:40, 
-        padding:30,
-    },
-    textStyle: {
-        fontSize: 20,
-        color: "black",
-      }
-      
-})
-export { stylesTarjeta, navbarStyle, appStyle, footerStyle, modalStyle}
+export { cardStyle, modalStyle, menuStyle}
 
 

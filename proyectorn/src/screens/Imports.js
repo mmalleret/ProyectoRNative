@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Tarjeta from '../components/Tarjeta';
 import {getData} from '../api/RandomUser';
+import { menuStyle } from '../styles/Styles';
 
 import { 
   View,
@@ -104,30 +105,39 @@ async storeData(value){
 
   render (){
     return (
-    <View>
-      
-        { this.state.activity
-        ? <ActivityIndicator
-        color={"blue"}
-        size={60}/>
+    <View style={menuStyle.container}>
 
-        : <View>
-          <FlatList
-          data={this.state.contactos}
-          keyExtractor={this.keyExtractor}
-          renderItem={this.renderItem}
-          />
-          <View>
-            <TextInput onChangeText={ value => this.setState({pedido: value})}></TextInput>
-            <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
-            <Text>Añadir</Text>
-            </TouchableOpacity>
+      <View style={menuStyle.item}> 
+      </View>
+        <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
+          <TextInput onChangeText={ value => this.setState({pedido: value})}></TextInput>
+          <Text style={menuStyle.text} >Añadir</Text>
+        </TouchableOpacity >
+
+        <TouchableOpacity onPress={ () => this.props.navigation.navigate('ViewImportedCards')}>
+            <Text style={menuStyle.text} >Contactos</Text>
+        </TouchableOpacity>
             {/* cuando haces una nueva importación de la api, no se agregan a las tarjetas anteriores, sino que llega un lote nuevo. esto hay que cambiarlo */}
-          </View>
-          {/* acá va el alert con this.state.cantidad */}
-          </View>
-          
-        }
+
+        <View>
+          { this.state.activity
+          ? <ActivityIndicator
+          color={"blue"}
+          size={60}/>
+
+          : <View>
+            <FlatList
+            data={this.state.contactos}
+            keyExtractor={this.keyExtractor}
+            renderItem={this.renderItem}
+            />
+
+            </View>
+            
+          } 
+        </View>
+      
+
       
   
     </View>

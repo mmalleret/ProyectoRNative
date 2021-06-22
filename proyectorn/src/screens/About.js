@@ -6,15 +6,7 @@ import {
   Text
 } from "react-native";
 
-export class Acercade extends Component {
-  
-constructor() {
-  super();
-  this.state = {
-
-  }
-}  
-
+export class About extends Component {
 
   render (){
     return (
@@ -27,4 +19,3 @@ constructor() {
 
 }
 
-export default Acercade;
