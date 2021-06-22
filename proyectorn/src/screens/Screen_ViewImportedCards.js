@@ -25,7 +25,6 @@ constructor() {
     selectedItem: null,
     contactosBackup: [],
     textHandler: "",
-    arrayComentarios: [],
   }
 }  
 
@@ -96,11 +95,11 @@ showModal(item){
 
 
 
-async comment(item){
+async comment(selectedItem){
 
   let comentario = this.state.textHandler;
 
-  const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == item.login.uuid})
+  const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == selectedItem.login.uuid})
   
   let addComent = resultado.comentario = comentario
 
@@ -185,9 +184,9 @@ async comment(item){
           <Text>{this.state.selectedItem.registered.date}</Text>
           <Text>{this.state.selectedItem.cell}</Text>
         
-          <Text>Añadir comentario: {this.state.arrayComentarios}</Text>
+          <Text>Añadir comentario: {this.state.textHandler}</Text>
           <TextInput onChangeText={ value => this.setState({textHandler: value})} ></TextInput>
-          <TouchableOpacity onPress={()=> this.comment(item)}><Text>lo meto</Text></TouchableOpacity>
+          <TouchableOpacity onPress={()=> this.comment(this.state.selectedItem)}><Text>lo meto</Text></TouchableOpacity>
           
             </>
             }
