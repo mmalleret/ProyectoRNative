@@ -18,6 +18,7 @@ export default class App extends Component {
 
   render (){
     return (
+<<<<<<< HEAD
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Menu" component={ Menu } />
@@ -26,5 +27,26 @@ export default class App extends Component {
           <Stack.Screen name="Bin" component={ Bin } />
         </Stack.Navigator>
       </NavigationContainer>
+=======
+    <View style={{flex: 1}}>
+
+      <View>
+        <Navbar/>
+      </View>
+
+      <View style={appStyle.layout}>
+        <Screen_ViewImportedCards/>
+      </View>
+
+      <View>
+        <Footer/>
+      </View>
+    
+    </View>
+    
+  
+  
+
+>>>>>>> 160d07b0d0a4e3b0c61e4f70405a4643b6d3cc99
   )}  
   }

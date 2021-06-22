@@ -52,6 +52,32 @@ const navbarStyle = StyleSheet.create({
       
 })
 
+const modalStyle = StyleSheet.create({
+    containerStyle: {
+        flex: 1, 
+        justifyContent: 'center', 
+        alignItems: 'center'
+    }, 
+    viewStyle: {
+        height:'70%',
+        width:'100%',
+        backgroundColor: 'white',
+        justifyContent:'center',
+        borderTopLeftRadius:20,
+        borderTopRightRadius:20,
+        elevation:20,
+        shadowColor:'black',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor:'black' 
+
+    }, 
+    imagen:{
+        width:100,
+        height:100
+    }
+})
+
 const footerStyle = StyleSheet.create({
     contentStyle: {
         backgroundColor: "lightblue",
@@ -66,6 +92,6 @@ const footerStyle = StyleSheet.create({
       }
       
 })
-export { stylesTarjeta, navbarStyle, appStyle, footerStyle}
+export { stylesTarjeta, navbarStyle, appStyle, footerStyle, modalStyle}
 
 

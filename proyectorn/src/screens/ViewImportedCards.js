@@ -10,7 +10,9 @@ import {
   Modal,
   FlatList,
   TextInput,
+  Image
 } from "react-native";
+import { modalStyle } from '../styles/Styles';
 
 export default class ViewImportedCards extends Component {
   
@@ -20,9 +22,9 @@ constructor() {
     contactosImportados: [],
     papelera:[],
     showModal: false,
+    selectedItem: null,
     contactosBackup: [],
     textHandler: "",
-    arrayComentarios: [],
   }
 }  
 
@@ -85,15 +87,28 @@ async deleteData(item) {
   }
 }
 
-//async comment(){
-  
-//  let comentario = this.state.textHandler;
+showModal(item){
+  this.setState({selectedItem: item, showModal:true});
 
-//  let agregar = arrayComentarios.push(comentario)
 
-//  console.log(agregar)
+}
+
+
+
+async comment(selectedItem){
+
+  let comentario = this.state.textHandler;
+
+  const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == selectedItem.login.uuid})
   
-//}
+  let addComent = resultado.comentario = comentario
+
+  console.log(addComent)
+
+
+  
+  
+}
 
 
 
@@ -116,7 +131,8 @@ async deleteData(item) {
           />
 
           <TouchableOpacity onPress={() => this.deleteData(item)}><Text>Eliminar</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => this.setState({showModal: true})}><Text>Activar Modal</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => this.showModal(item)}><Text>Activar Modal</Text></TouchableOpacity>
+
         </View>
   
       )
@@ -152,18 +168,29 @@ async deleteData(item) {
 
 
       {/* este es el modal */}
-      <Modal visible={this.state.showModal} style={{backgroundColor: "white"}}  animationType="fade">
-        <View>
-        <Text onPress={() => this.setState({showModal: false})}>X</Text>
-        <Text>Hola funciono</Text>
+      <Modal visible={this.state.showModal} transparent={true}  animationType="slide">
+        <View style={modalStyle.containerStyle}>
+          <View style={modalStyle.viewStyle}>
+            { this.state.selectedItem &&
+            <>
+            
+          <Text onPress={() => this.setState({showModal: false})}>Close [X]</Text>
+          <Image style={modalStyle.imagen} source={{uri:this.state.selectedItem.picture.medium}}/>
+          <Text>{this.state.selectedItem.name.first} {this.state.selectedItem.name.last}</Text>
+          <Text>{this.state.selectedItem.location.street.name} {this.state.selectedItem.location.street.number}</Text>
+          <Text>{this.state.selectedItem.location.city}, {this.state.selectedItem.location.state}</Text>
+          <Text>{this.state.selectedItem.location.country}</Text>
+          <Text>{this.state.selectedItem.location.postcode}</Text>
+          <Text>{this.state.selectedItem.registered.date}</Text>
+          <Text>{this.state.selectedItem.cell}</Text>
         
-        
-        
-        {/* <Text>Añadir comentario: {this.state.textHandler}</Text>
-        <TextInput onChangeText={ value => this.setState({textHandler: value})} ></TextInput>
-        <TouchableOpacity onPress={this.comment.bind(this)}><Text>lo meto</Text></TouchableOpacity> */}
-
-
+          <Text>Añadir comentario: {this.state.textHandler}</Text>
+          <TextInput onChangeText={ value => this.setState({textHandler: value})} ></TextInput>
+          <TouchableOpacity onPress={()=> this.comment(this.state.selectedItem)}><Text>lo meto</Text></TouchableOpacity>
+          
+            </>
+            }
+          </View>
         </View>
       </Modal>
 
