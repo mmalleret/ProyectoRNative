@@ -47,7 +47,7 @@ const importsStyle = StyleSheet.create({
     }
 })
 
-const ViewImportedCardsStyle = StyleSheet.create({
+const contactosStyle = StyleSheet.create({
     text: {
         color: '#7f8662',
         fontWeight: 'bold',
@@ -71,6 +71,12 @@ const ViewImportedCardsStyle = StyleSheet.create({
         borderRadius: 20, 
         width: 300,     
         borderColor: '#7f8662', 
+    },
+    itemInput: {
+        justifyContent: 'center',
+        alignItems: 'center',  
+        margin: 20,
+        height: 20,    
     }
 })
 
@@ -126,6 +132,6 @@ const modalStyle = StyleSheet.create({
     }
 })
 
-export { cardStyle, modalStyle, menuStyle, importsStyle}
+export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle}
 
 
