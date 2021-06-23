@@ -96,7 +96,9 @@ async storeData(value){
             telefono={item.cell}
           />
 
-          <TouchableOpacity onPress={() => this.storeData(item)}><Text>Guardar</Text></TouchableOpacity>
+          <View style={importsStyle.containerButton}>
+            <View style={importsStyle.containerButtonItem} ><TouchableOpacity onPress={() => this.storeData(item)}><Text style={importsStyle.textButton}>Guardar</Text></TouchableOpacity></View>
+          </View>
         </View>
   
       )
@@ -105,43 +107,35 @@ async storeData(value){
 
   render (){
     return (
-    <View style={importsStyle.container}>
+          <View style={importsStyle.container}>
+            <TextInput style={importsStyle.input} onChangeText={ value => this.setState({pedido: value})} placeholder="Cantidad de contactos..." ></TextInput>
+              <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
+                <Text style={importsStyle.text} >Añadir</Text>
+              </TouchableOpacity >
 
-      <View style={importsStyle.item}> 
-      </View>
+            <TouchableOpacity onPress={ () => this.props.navigation.navigate('ViewImportedCards')}>
+                <Text style={importsStyle.text} >Contactos</Text>
+            </TouchableOpacity>
+                  {/* cuando haces una nueva importación de la api, no se agregan a las tarjetas anteriores, sino que llega un lote nuevo. esto hay que cambiarlo */}
 
-        <TextInput style={importsStyle.input} onChangeText={ value => this.setState({pedido: value})} placeholder="Cantidad de contactos..." ></TextInput>
-        <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
-          <Text style={importsStyle.text} >Añadir</Text>
-        </TouchableOpacity >
 
-        <TouchableOpacity onPress={ () => this.props.navigation.navigate('ViewImportedCards')}>
-            <Text style={importsStyle.text} >Contactos</Text>
-        </TouchableOpacity>
-            {/* cuando haces una nueva importación de la api, no se agregan a las tarjetas anteriores, sino que llega un lote nuevo. esto hay que cambiarlo */}
+            { this.state.activity
+            ? <ActivityIndicator
+            color={"blue"}
+            size={60}/>
 
-        <View>
-          { this.state.activity
-          ? <ActivityIndicator
-          color={"blue"}
-          size={60}/>
+            : <View style={importsStyle.containerFlatList}>
+              <FlatList
+              data={this.state.contactos}
+              keyExtractor={this.keyExtractor}
+              renderItem={this.renderItem}
+              />
 
-          : <View>
-            <FlatList
-            data={this.state.contactos}
-            keyExtractor={this.keyExtractor}
-            renderItem={this.renderItem}
-            />
-
-            </View>
-            
-          } 
-        </View>
+              </View>
+              
+            }       
       
-
-      
-  
-    </View>
+          </View>
   
   
   )}  

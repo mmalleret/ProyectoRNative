@@ -12,31 +12,27 @@ const menuStyle = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#f6c9ae'
-    },
-    item: {
-        justifyContent: 'center',
-        alignItems: 'center',  
-        height: 200
-    },
+    }
 })
 
 const importsStyle = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center', 
+        alignItems: 'center',
+        backgroundColor: '#f6c9ae',
+        paddingTop: 100
+    },
     text: {
         color: '#7f8662',
         fontWeight: 'bold',
         fontSize: 30
 
     },
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#f6c9ae'
-    },
-    item: {
-        justifyContent: 'center',
-        alignItems: 'center',  
-        height: 200
+    textButton: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 20
     },
     input: {
         borderWidth: 2,
@@ -44,6 +40,23 @@ const importsStyle = StyleSheet.create({
         borderRadius: 20, 
         width: 300,     
         borderColor: '#7f8662', 
+        margin: 20
+    },
+    containerFlatList: {
+        flex: 1,
+        justifyContent: 'center', 
+        alignItems: 'center',
+        backgroundColor: '#f6c9ae',
+        padding: 20
+    },
+    containerButton: {
+        flex: 1, 
+        flexDirection: 'row'
+    },
+    containerButtonItem: {
+        flex: 2,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 
@@ -64,8 +77,7 @@ const contactosStyle = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',  
         height: 320,
-    },
-    itemInput: {
+        marginTop: 0
     },
     input: {
         borderWidth: 2,
@@ -82,6 +94,20 @@ const contactosStyle = StyleSheet.create({
         alignItems: 'center',  
         margin: 20,
         height: 20,    
+    },
+    containerButtons: {
+        flex: 1, 
+        flexDirection: 'row'
+    },
+    itemButton: {
+        flex: 2,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    textButton: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 20
     }
 })
 
@@ -117,29 +143,54 @@ const cardStyle = StyleSheet.create({
 })
 
 const modalStyle = StyleSheet.create({
-    containerStyle: {
+    container: {
         flex: 1, 
-        justifyContent: 'center', 
-        alignItems: 'center'
+        justifyContent: 'flex-end', 
+        alignItems: 'flex-end',
     }, 
-    viewStyle: {
+    modal: {
         height:'70%',
         width:'100%',
         backgroundColor: 'white',
         justifyContent:'center',
-        borderTopLeftRadius:20,
-        borderTopRightRadius:20,
+        alignItems: 'center',
+        borderRadius: 20,
         elevation:20,
         shadowColor:'black',
         borderWidth: 1,
         borderStyle: 'solid',
-        borderColor:'black' 
-
+        borderColor:'black',
+        backgroundColor: '#7f8662'
     }, 
     imagen:{
         width:100,
         height:100
-    }
+    },
+    text: {
+        color: '#f6c9ae',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+    textButton: {
+        color: '#f6c9ae',
+        fontWeight: 'bold',
+        fontSize: 30
+    },
+    closeButton: {
+        position: 'absolute',
+        right: 20,
+        top: 10,
+        color: '#f6c9ae',
+        fontWeight: 'bold',
+        fontSize: 30,
+    },
+    input: {
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderRadius: 20, 
+        width: 300,     
+        borderColor: '#f6c9ae', 
+    },
 })
 
 export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle}
