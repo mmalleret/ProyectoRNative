@@ -21,12 +21,18 @@ const importsStyle = StyleSheet.create({
         justifyContent: 'center', 
         alignItems: 'center',
         backgroundColor: '#f6c9ae',
-        paddingTop: 100
+        paddingTop: '10%'
     },
-    text: {
+    textPrincipal: {
         color: '#7f8662',
         fontWeight: 'bold',
         fontSize: 30
+
+    },
+    textSecundario: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 20
 
     },
     textButton: {
@@ -61,17 +67,22 @@ const importsStyle = StyleSheet.create({
 })
 
 const contactosStyle = StyleSheet.create({
-    text: {
+    textPrincipal: {
         color: '#7f8662',
         fontWeight: 'bold',
         fontSize: 30
-
+    },
+    textSecundario: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 20
     },
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#f6c9ae'
+        backgroundColor: '#f6c9ae',
+        paddingTop: '10%'
     },
     itemContactos: {
         justifyContent: 'center',
