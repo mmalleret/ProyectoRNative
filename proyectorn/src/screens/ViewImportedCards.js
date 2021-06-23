@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Tarjeta from '../components/Tarjeta';
-import { contactosStyle, modalStyle } from '../styles/Styles';
+import { cardStyle, contactosStyle, modalStyle } from '../styles/Styles';
 
 import { 
   View,
@@ -129,8 +129,10 @@ async comment(selectedItem){
             telefono={item.cell}
           />
 
-          <TouchableOpacity onPress={() => this.deleteData(item)}><Text>Eliminar</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => this.showModal(item)}><Text>Activar Modal</Text></TouchableOpacity>
+          <View style={contactosStyle.containerButtons}>
+            <View style={contactosStyle.itemButton} ><TouchableOpacity onPress={() => this.deleteData(item)}><Text style={contactosStyle.textButton} >Eliminar</Text></TouchableOpacity></View>
+            <View style={contactosStyle.itemButton} ><TouchableOpacity onPress={() => this.showModal(item)}><Text style={contactosStyle.textButton} >Detalle</Text></TouchableOpacity></View>
+          </View>
 
         </View>
   
@@ -144,9 +146,7 @@ async comment(selectedItem){
     return (
     <View style={contactosStyle.container} >
       
-      <View style={contactosStyle.item}>
-
-      <View>
+      <View style={contactosStyle.itemContactos}>
           <TouchableOpacity onPress={this.getData.bind(this)}>
             <Text style={contactosStyle.text} >Contactos importados</Text>
           </TouchableOpacity>
@@ -157,38 +157,39 @@ async comment(selectedItem){
           />
       </View>
 
-      <View style={contactosStyle.container} >
-        <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad"  ></TextInput></View>
-        <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
-        <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
-      </View>
-        
+      <View style={contactosStyle.itemInput}>
+        <View style={contactosStyle.containerInput} >
+          <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad"  ></TextInput></View>
+          <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
+          <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
+        </View>
       </View>
 
+        
 
       {/* este es el modal */}
       <Modal visible={this.state.showModal} transparent={true}  animationType="slide">
-        <View style={modalStyle.containerStyle}>
-          <View style={modalStyle.viewStyle}>
-            { this.state.selectedItem &&
-            <>
-            
-          <Text onPress={() => this.setState({showModal: false})}>Close [X]</Text>
-          <Image style={modalStyle.imagen} source={{uri:this.state.selectedItem.picture.medium}}/>
-          <Text>{this.state.selectedItem.name.first} {this.state.selectedItem.name.last}</Text>
-          <Text>{this.state.selectedItem.location.street.name} {this.state.selectedItem.location.street.number}</Text>
-          <Text>{this.state.selectedItem.location.city}, {this.state.selectedItem.location.state}</Text>
-          <Text>{this.state.selectedItem.location.country}</Text>
-          <Text>{this.state.selectedItem.location.postcode}</Text>
-          <Text>{this.state.selectedItem.registered.date}</Text>
-          <Text>{this.state.selectedItem.cell}</Text>
-        
-          <Text>Añadir comentario: {this.state.textHandler}</Text>
-          <TextInput onChangeText={ value => this.setState({textHandler: value})} ></TextInput>
-          <TouchableOpacity onPress={()=> this.comment(this.state.selectedItem)}><Text>lo meto</Text></TouchableOpacity>
+        <View style={modalStyle.container}>
+          <View style={modalStyle.modal}>
+              { this.state.selectedItem &&
+              <>
+              
+            <Text style={modalStyle.closeButton} onPress={() => this.setState({showModal: false})}>X</Text>
+            <Image style={modalStyle.imagen} source={{uri:this.state.selectedItem.picture.medium}}/>
+            <Text style={modalStyle.text} >{this.state.selectedItem.name.first} {this.state.selectedItem.name.last}</Text>
+            <Text style={modalStyle.text} >{this.state.selectedItem.location.street.name} {this.state.selectedItem.location.street.number}</Text>
+            <Text style={modalStyle.text} >{this.state.selectedItem.location.city}, {this.state.selectedItem.location.state}</Text>
+            <Text style={modalStyle.text} >{this.state.selectedItem.location.country}</Text>
+            <Text style={modalStyle.text} >{this.state.selectedItem.location.postcode}</Text>
+            <Text style={modalStyle.text} >{this.state.selectedItem.registered.date}</Text>
+            <Text style={modalStyle.text} >{this.state.selectedItem.cell}</Text>
           
-            </>
-            }
+            <Text style={modalStyle.textButton} >Añadir comentario: {this.state.textHandler}</Text>
+            <TextInput style={modalStyle.input} onChangeText={ value => this.setState({textHandler: value})} ></TextInput>
+            <TouchableOpacity onPress={()=> this.comment(this.state.selectedItem)}><Text style={modalStyle.textButton} >Almacenar comentario</Text></TouchableOpacity>
+            
+              </>
+              }
           </View>
         </View>
       </Modal>

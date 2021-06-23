@@ -42,7 +42,7 @@ export default class Tarjeta extends Component {
     })
 
     return (
-    <View  style={stylesTarjeta.container}>
+    <View  style={cardStyle.container}>
       
       <Animated.View style={{
         backfaceVisibility: 'false',
@@ -51,12 +51,12 @@ export default class Tarjeta extends Component {
             {rotateX: rotA}
 
         ]}}>
-        <View style={stylesTarjeta.diseñoTarjeta}>
-          <Image style={stylesTarjeta.image} source={{uri: this.props.foto}}/>
-          <View style={stylesTarjeta.item}><Text> {this.props.apellido} {this.props.nombre}</Text></View> 
-          <View style={stylesTarjeta.item}><Text>{this.props.mail}</Text></View>
-          <View style={stylesTarjeta.item}><Text>{this.props.fecha} ({this.props.edad})</Text></View>
-          <TouchableOpacity onPress={this.topDown}><Text>dar vuelta</Text></TouchableOpacity>
+        <View style={cardStyle.container}>
+          <View style={cardStyle.item} ><Image style={cardStyle.image} source={{uri: this.props.foto}}/></View> 
+          <View style={cardStyle.item}><Text style={cardStyle.text} > {this.props.apellido} {this.props.nombre}</Text></View> 
+          <View style={cardStyle.item}><Text style={cardStyle.text} >{this.props.mail}</Text></View>
+          <View style={cardStyle.item}><Text style={cardStyle.text} >{this.props.fecha} ({this.props.edad})</Text></View> 
+          <TouchableOpacity onPress={this.topDown}><Text style={cardStyle.textButton} >Dar vuelta</Text></TouchableOpacity>
         </View>
       </Animated.View>
       
@@ -76,13 +76,6 @@ export default class Tarjeta extends Component {
       no anda bien cuando le activamos el position aboslute*/}
 
 
-    <View  style={cardStyle.container}>
-        <View style={cardStyle.item} ><Image style={cardStyle.image} source={{uri: this.props.foto}}/></View> 
-        <View style={cardStyle.item}><Text style={cardStyle.text} > {this.props.apellido} {this.props.nombre}</Text></View> 
-        <View style={cardStyle.item}><Text style={cardStyle.text} >{this.props.mail}</Text></View>
-        <View style={cardStyle.item}><Text style={cardStyle.text} >{this.props.fecha} ({this.props.edad})</Text></View> 
-
-    </View>
     
     </View>
   )}  
