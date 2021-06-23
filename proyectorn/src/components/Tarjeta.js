@@ -46,7 +46,7 @@ export default class Tarjeta extends Component {
 
       <TouchableOpacity onPress={this.topDown}>
       <Animated.View style={{
-        backfaceVisibility: 'false',
+        backfaceVisibility: 'true',
         transform: [
             {translateY: this.position},
             {rotateX: rotA}
@@ -63,7 +63,7 @@ export default class Tarjeta extends Component {
 
       <Animated.View style={{
         backfaceVisibility: 'true',
-        position:'absolute',
+        //position:'absolute',
         transform: [
             {translateY: this.position},
             {rotateX: rotB}
