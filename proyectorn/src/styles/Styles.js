@@ -1,62 +1,109 @@
 import {StyleSheet} from 'react-native';
 
-const appStyle = StyleSheet.create({
-    layout: {
-        flex: 3
-    }
-})
-const navStyle = StyleSheet.create({
-    layout: {
-        flex: 1
-    }
-})
+const menuStyle = StyleSheet.create({
+    text: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 30
 
-const stylesTarjeta = StyleSheet.create({
+    },
     container: {
         flex: 1,
-        justifyContent: 'center', 
+        justifyContent: 'center',
         alignItems: 'center',
-        
+        backgroundColor: '#f6c9ae'
     },
     item: {
-        flex: 1,
-        fontSize: 15,
+        justifyContent: 'center',
+        alignItems: 'center',  
+        height: 200
     },
-    diseñoTarjeta: {
-        backgroundColor: "#8ed7e8",
-        borderWidth: 1,
-        borderRadius: 20,
-        margin: 5,
-        width: 250,
-        height: 200,
-        padding: 10,
-        
-    },
-    image:{
-        width: 50, 
-        height: 50,
-    },
-    imageMedium:{
-        width: 100, 
-        height: 100,
-    },
-
 })
 
-const navbarStyle = StyleSheet.create({
-    contentStyle: {
-        backgroundColor: "lightblue",
-        justifyContent: "center",
-        alignItems: "center", 
-        //marginTop: 50, 
-        fontSize:40, 
-        padding:30,
+const importsStyle = StyleSheet.create({
+    text: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 30
+
     },
-    textStyle: {
-        fontSize: 20,
-        color: "black",
-      }
-      
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f6c9ae'
+    },
+    item: {
+        justifyContent: 'center',
+        alignItems: 'center',  
+        height: 200
+    },
+    input: {
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderRadius: 20, 
+        width: 300,     
+        borderColor: '#7f8662', 
+    }
+})
+
+const contactosStyle = StyleSheet.create({
+    text: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 30
+
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f6c9ae'
+    },
+    item: {
+        justifyContent: 'center',
+        alignItems: 'center',  
+        height: 200
+    },
+    input: {
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderRadius: 20, 
+        width: 300,     
+        borderColor: '#7f8662', 
+    },
+    itemInput: {
+        justifyContent: 'center',
+        alignItems: 'center',  
+        margin: 20,
+        height: 20,    
+    }
+})
+
+const cardStyle = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#7f8662',
+        justifyContent: 'center', 
+        alignItems: 'center',
+        borderWidth: 1,
+        borderRadius: 20,
+        width: 300,
+        height: 300,
+    },
+    item: {
+        justifyContent: 'center',
+        alignItems: 'center',  
+    },
+    text: {
+        color: '#f6c9ae',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+    image:{
+        width: 100, 
+        height: 100,
+    }
 })
 
 const modalStyle = StyleSheet.create({
@@ -85,20 +132,6 @@ const modalStyle = StyleSheet.create({
     }
 })
 
-const footerStyle = StyleSheet.create({
-    contentStyle: {
-        backgroundColor: "lightblue",
-        justifyContent: "center",
-        alignItems: "center", 
-        fontSize:40, 
-        padding:30,
-    },
-    textStyle: {
-        fontSize: 20,
-        color: "black",
-      }
-      
-})
-export { stylesTarjeta, navbarStyle, appStyle, footerStyle, modalStyle}
+export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle}
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Tarjeta from '../components/Tarjeta';
-
+import { contactosStyle, modalStyle } from '../styles/Styles';
 
 import { 
   View,
@@ -12,7 +12,6 @@ import {
   TextInput,
   Image, 
 } from "react-native";
-import { modalStyle } from '../styles/Styles';
 
 export class ViewImportedCards extends Component {
   
@@ -143,13 +142,13 @@ async comment(selectedItem){
   render (){
 
     return (
-    <View>
+    <View style={contactosStyle.container} >
       
-      <View>
+      <View style={contactosStyle.item}>
 
       <View>
           <TouchableOpacity onPress={this.getData.bind(this)}>
-            <Text>Contactos importados</Text>
+            <Text style={contactosStyle.text} >Contactos importados</Text>
           </TouchableOpacity>
           <FlatList
           data={this.state.contactosImportados}
@@ -158,10 +157,10 @@ async comment(selectedItem){
           />
       </View>
 
-      <View>
-      <TextInput style={{backgroundColor: "red"}} onChangeText={ value => this.filterData(value)}></TextInput>
-      <TextInput style={{backgroundColor: "red"}} onChangeText={ value => this.filterData(value)}></TextInput>
-      <TextInput style={{backgroundColor: "red"}} onChangeText={ value => this.filterData(value)}></TextInput>
+      <View style={contactosStyle.container} >
+        <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad"  ></TextInput></View>
+        <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
+        <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
       </View>
         
       </View>
