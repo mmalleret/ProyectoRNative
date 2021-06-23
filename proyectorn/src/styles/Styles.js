@@ -60,10 +60,12 @@ const contactosStyle = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#f6c9ae'
     },
-    item: {
+    itemContactos: {
         justifyContent: 'center',
         alignItems: 'center',  
-        height: 200
+        height: 320,
+    },
+    itemInput: {
     },
     input: {
         borderWidth: 2,
@@ -71,6 +73,9 @@ const contactosStyle = StyleSheet.create({
         borderRadius: 20, 
         width: 300,     
         borderColor: '#7f8662', 
+    },
+    containerInput: {
+        flex: 2
     },
     itemInput: {
         justifyContent: 'center',
@@ -99,6 +104,11 @@ const cardStyle = StyleSheet.create({
         color: '#f6c9ae',
         fontWeight: 'bold',
         fontSize: 16
+    },
+    textButton: {
+        color: '#f6c9ae',
+        fontWeight: 'bold',
+        fontSize: 30
     },
     image:{
         width: 100, 
