@@ -99,12 +99,14 @@ async comment(selectedItem){
   let comentario = this.state.textHandler;
 
   const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == selectedItem.login.uuid})
-  
-  resultado.comentario = comentario
+
+  resultado.comment = comentario
+
+  console.log(resultado.comment)
 
   const jsonObjeto = JSON.stringify(resultado)
   console.log(jsonObjeto) 
-  await AsyncStorage.setItem("contactoNuevo", jsonObjeto);
+  await AsyncStorage.setItem("contactoEditado"+ selectedItem.login.uuid, jsonObjeto);
 
 
   
@@ -146,7 +148,9 @@ async comment(selectedItem){
     return (
     <View style={contactosStyle.container} >
       
-      <View style={contactosStyle.itemContactos}>
+      <View style={contactosStyle.item}>
+
+      <View>
           <TouchableOpacity onPress={this.getData.bind(this)}>
             <Text style={contactosStyle.text} >Contactos importados</Text>
           </TouchableOpacity>
@@ -157,15 +161,14 @@ async comment(selectedItem){
           />
       </View>
 
-      <View style={contactosStyle.itemInput}>
-        <View style={contactosStyle.containerInput} >
-          <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad"  ></TextInput></View>
-          <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
-          <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
-        </View>
+      <View style={contactosStyle.container} >
+        <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad"  ></TextInput></View>
+        <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
+        <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
+      </View>
+        
       </View>
 
-        
 
       {/* este es el modal */}
       <Modal visible={this.state.showModal} transparent={true}  animationType="slide">

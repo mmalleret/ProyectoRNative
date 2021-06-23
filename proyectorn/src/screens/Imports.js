@@ -33,9 +33,10 @@ getDataFromApi(numero) {
   .then((resultado)=> {
     this.setState({activity: true})
     this.setState({contactos: resultado, activity: false})
-  }) 
-  
+
+  })
 }
+
 async componentDidMount(){
   await AsyncStorage.removeItem("contactos")
   let obtenerContactos = await AsyncStorage.getItem("contactos")
