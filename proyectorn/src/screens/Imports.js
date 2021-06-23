@@ -109,7 +109,7 @@ async storeData(value){
   render (){
     return (
           <View style={importsStyle.container}>
-            <TextInput style={importsStyle.input} onChangeText={ value => this.setState({pedido: value})} placeholder="Cantidad de contactos..." ></TextInput>
+              <TextInput style={importsStyle.input} onChangeText={ value => this.setState({pedido: value})} placeholder="Cantidad de contactos..." ></TextInput>
               <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
                 <Text style={importsStyle.textPrincipal} >Añadir</Text>
               </TouchableOpacity >
@@ -121,6 +121,7 @@ async storeData(value){
 
 
             { this.state.activity
+
             ? <ActivityIndicator
             color={"blue"}
             size={60}/>

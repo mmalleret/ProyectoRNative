@@ -10,7 +10,7 @@ import {
 
 } from "react-native";
 
-export class Tarjeta extends Component {
+export default class Tarjeta extends Component {
 
   position = new Animated.Value(0);
   rotation = new Animated.Value(0);
@@ -43,7 +43,8 @@ export class Tarjeta extends Component {
 
     return (
     <View>
-      
+
+      <TouchableOpacity onPress={this.topDown}>
       <Animated.View style={{
         backfaceVisibility: 'false',
         transform: [
@@ -56,7 +57,6 @@ export class Tarjeta extends Component {
           <View style={cardStyle.item}><Text style={cardStyle.text} > {this.props.apellido} {this.props.nombre}</Text></View> 
           <View style={cardStyle.item}><Text style={cardStyle.text} >{this.props.mail}</Text></View>
           <View style={cardStyle.item}><Text style={cardStyle.text} >{this.props.fecha} ({this.props.edad})</Text></View> 
-          <TouchableOpacity onPress={this.topDown}><Text style={cardStyle.textButton} >Dar vuelta</Text></TouchableOpacity>
         </View>
       </Animated.View>
       
@@ -71,10 +71,9 @@ export class Tarjeta extends Component {
         ],}}>
             <View style={cardStyle.container}>
             <Text>hola</Text>
-            <TouchableOpacity onPress={this.topDown}><Text>dar vuelta</Text></TouchableOpacity>
             </View>
       </Animated.View> 
-
+      </TouchableOpacity>
 
 
     

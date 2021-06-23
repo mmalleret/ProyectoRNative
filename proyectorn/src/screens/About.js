@@ -5,7 +5,6 @@ import {
   View,
   Text,
   Animated,
-  TouchableWithoutFeedback,
   Easing
 } from "react-native";
 
@@ -16,7 +15,7 @@ export class About extends Component {
   
   topDown = () => {
     Animated.timing(this.position, {
-      toValue: 700,
+      toValue: 600,
       duration: 1000,
       easing: Easing.bounce,
       useNativeDriver: false

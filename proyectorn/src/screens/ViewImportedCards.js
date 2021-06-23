@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Tarjeta from '../components/Tarjeta';
-import { cardStyle, contactosStyle, modalStyle } from '../styles/Styles';
+import { contactosStyle, modalStyle } from '../styles/Styles';
 
 import { 
   View,
@@ -95,24 +95,24 @@ showModal(item){
 
 
 
-async comment(selectedItem){
+// async comment(selectedItem){
 
-  let comentario = this.state.textHandler;
+//   let comentario = this.state.textHandler;
 
-  const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == selectedItem.login.uuid})
+//   const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == selectedItem.login.uuid})
 
-  resultado.comment = comentario
+//   resultado.comment = comentario
 
-  console.log(resultado.comment)
+//   console.log(resultado.comment)
 
-  const jsonObjeto = JSON.stringify(resultado)
-  console.log(jsonObjeto) 
-  await AsyncStorage.setItem("contactoEditado"+ selectedItem.login.uuid, jsonObjeto);
+//   const jsonObjeto = JSON.stringify(resultado)
+//   console.log(jsonObjeto) 
+//   await AsyncStorage.setItem("contactoEditado", jsonObjeto);
 
 
   
   
-}
+// }
 
 
 

@@ -204,7 +204,6 @@ const modalStyle = StyleSheet.create({
     },
 })
 
-<<<<<<< HEAD
 const binStyle = StyleSheet.create({
     container: {
         flex: 1,
@@ -240,17 +239,5 @@ const binStyle = StyleSheet.create({
 })
 
 export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle, binStyle}
-=======
-const aboutStyle = StyleSheet.create({
-    neonText: {
-        color: "#fff",
-        textShadowColor: "#fff"
-
-    }
-
-})
-
-export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle, aboutStyle}
->>>>>>> 413ce70b9ffc74ada39bd926c629989598a02520
 
 
