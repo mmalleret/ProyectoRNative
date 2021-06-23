@@ -11,6 +11,13 @@ import {
 } from "react-native";
 
 export default class Tarjeta extends Component {
+  constructor() {
+    super();
+    this.state = {
+      toValue: 1,
+    }
+  }  
+  
 
   position = new Animated.Value(0);
   rotation = new Animated.Value(0);
@@ -20,13 +27,14 @@ export default class Tarjeta extends Component {
     Animated.parallel([
 
       Animated.timing(this.rotation, {
-        toValue: 1,
+        toValue: this.state.toValue,
         duration: 1000,
         useNativeDriver: true, 
       })
 
     ]).start();
   
+    this.setState({toValue: this.state.toValue + 1})
   }
 
   render (){
@@ -46,7 +54,7 @@ export default class Tarjeta extends Component {
 
       <TouchableOpacity onPress={this.topDown}>
       <Animated.View style={{
-        backfaceVisibility: 'true',
+        backfaceVisibility: 'hidden',
         transform: [
             {translateY: this.position},
             {rotateX: rotA}
@@ -62,15 +70,15 @@ export default class Tarjeta extends Component {
       
 
       <Animated.View style={{
-        backfaceVisibility: 'true',
-        //position:'absolute',
+        backfaceVisibility: 'hidden',
+        position:'absolute',
         transform: [
             {translateY: this.position},
             {rotateX: rotB}
 
         ],}}>
             <View style={cardStyle.container}>
-            <Text>hola</Text>
+            <View style={cardStyle.item} ><Image style={cardStyle.image} source={{uri: this.props.foto}}/></View> 
             </View>
       </Animated.View> 
       </TouchableOpacity>

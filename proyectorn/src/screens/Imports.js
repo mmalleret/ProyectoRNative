@@ -31,6 +31,8 @@ constructor() {
 getDataFromApi(numero) {
   getData(numero)
   .then((resultado)=> {
+    // let adicionar = [this.state.contactos, resultado]
+    // this.setState({contactos: adicionar, activity: false})
     this.setState({activity: true})
     this.setState({contactos: resultado, activity: false})
 
@@ -38,7 +40,7 @@ getDataFromApi(numero) {
 }
 
 async componentDidMount(){
-  await AsyncStorage.removeItem("contactos")
+  
   let obtenerContactos = await AsyncStorage.getItem("contactos")
   obtenerContactos = JSON.parse(obtenerContactos)
   
@@ -109,6 +111,7 @@ async storeData(value){
   render (){
     return (
           <View style={importsStyle.container}>
+
               <TextInput style={importsStyle.input} onChangeText={ value => this.setState({pedido: value})} placeholder="Cantidad de contactos..." ></TextInput>
               <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
                 <Text style={importsStyle.textPrincipal} >Añadir</Text>

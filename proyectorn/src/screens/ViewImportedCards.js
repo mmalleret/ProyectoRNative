@@ -30,15 +30,12 @@ constructor() {
 async getData() {
   try{
     
-    const resultado = await AsyncStorage.getItem("contactos");
+    let resultado = await AsyncStorage.getItem("contactos");
 
-    const jsonValue = JSON.parse(resultado)
+    resultado = JSON.parse(resultado)
     
-    if (Array.isArray(jsonValue)) {
-      this.setState({contactosImportados: jsonValue, contactosBackup:jsonValue})
-    } else{
-      this.setState({contactosImportados:[jsonValue], contactosBackup:[jsonValue]})
-    }
+    if (resultado == null) resultado = []
+      this.setState({contactosImportados: resultado, contactosBackup:resultado})
     
 
   }catch(e){
@@ -71,9 +68,14 @@ async deleteData(item) {
 
     this.setState({contactosImportados: deleteContacto, contactosBackup : backup})
 
-    this.state.papelera.push(item)
+    let bin = await AsyncStorage.getItem('eliminados');
+    bin = JSON.parse(bin)
+    if(bin == null) bin = [];
+    bin.push(item)
+    
+    //this.state.papelera.push(item)
 
-    const jsonEliminados = JSON.stringify(this.state.papelera)
+    const jsonEliminados = JSON.stringify(bin)
     console.log(jsonEliminados) 
     await AsyncStorage.setItem("eliminados", jsonEliminados);
 
