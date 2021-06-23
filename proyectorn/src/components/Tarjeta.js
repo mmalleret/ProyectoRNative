@@ -10,7 +10,7 @@ import {
 
 } from "react-native";
 
-export default class Tarjeta extends Component {
+export class Tarjeta extends Component {
 
   position = new Animated.Value(0);
   rotation = new Animated.Value(0);
@@ -42,7 +42,7 @@ export default class Tarjeta extends Component {
     })
 
     return (
-    <View  style={cardStyle.container}>
+    <View>
       
       <Animated.View style={{
         backfaceVisibility: 'false',
@@ -61,19 +61,20 @@ export default class Tarjeta extends Component {
       </Animated.View>
       
 
-      {/* <Animated.View style={{
+      <Animated.View style={{
         backfaceVisibility: 'true',
+        position:'absolute',
         transform: [
             {translateY: this.position},
             {rotateX: rotB}
 
         ],}}>
-        <View style={stylesTarjeta.diseñoTarjeta}>
-        <Text>hola</Text>
-        <TouchableOpacity onPress={this.topDown}><Text>dar vuelta</Text></TouchableOpacity>
-        </View>
+            <View style={cardStyle.container}>
+            <Text>hola</Text>
+            <TouchableOpacity onPress={this.topDown}><Text>dar vuelta</Text></TouchableOpacity>
+            </View>
       </Animated.View> 
-      no anda bien cuando le activamos el position aboslute*/}
+
 
 
     
