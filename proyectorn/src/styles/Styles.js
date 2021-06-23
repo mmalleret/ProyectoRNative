@@ -132,6 +132,15 @@ const modalStyle = StyleSheet.create({
     }
 })
 
-export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle}
+const aboutStyle = StyleSheet.create({
+    neonText: {
+        color: "#fff",
+        textShadowColor: "#fff"
+
+    }
+
+})
+
+export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle, aboutStyle}
 
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { aboutStyle } from '../styles/Styles';
 
 import { 
   View,
@@ -11,7 +11,11 @@ export class About extends Component {
   render (){
     return (
     <View>
-      <Text>Acá va la info de la pag/nosotras/etc.</Text>
+      <Text>NEMO STUDIO PRESENTS</Text>
+      <Text>NEO NEMO</Text> 
+       <Animated.View>
+
+       </Animated.View>
     </View>
   
   
