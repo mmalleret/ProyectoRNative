@@ -147,26 +147,28 @@ async comment(selectedItem){
     return (
     <View style={contactosStyle.container} >
       
-      <View style={contactosStyle.itemContactos}>
           <TouchableOpacity onPress={this.getData.bind(this)}>
-            <Text style={contactosStyle.text} >Contactos importados</Text>
+            <Text style={contactosStyle.textPrincipal} >Contactos importados</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity onPress={ () => this.props.navigation.navigate('Imports')}>
+                <Text style={contactosStyle.textSecundario} >Añadir contactos</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={ () => this.props.navigation.navigate('Bin')}>
+                <Text style={contactosStyle.textSecundario} >Papelera de reciclaje</Text>
+            </TouchableOpacity>
+
           <FlatList
           data={this.state.contactosImportados}
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
           />
-      </View>
 
-      <View style={contactosStyle.itemInput}>
         <View style={contactosStyle.containerInput} >
           <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad"  ></TextInput></View>
           <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
           <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
         </View>
-      </View>
-
-        
 
       {/* este es el modal */}
       <Modal visible={this.state.showModal} transparent={true}  animationType="slide">

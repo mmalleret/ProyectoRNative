@@ -110,11 +110,11 @@ async storeData(value){
           <View style={importsStyle.container}>
             <TextInput style={importsStyle.input} onChangeText={ value => this.setState({pedido: value})} placeholder="Cantidad de contactos..." ></TextInput>
               <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
-                <Text style={importsStyle.text} >Añadir</Text>
+                <Text style={importsStyle.textPrincipal} >Añadir</Text>
               </TouchableOpacity >
 
             <TouchableOpacity onPress={ () => this.props.navigation.navigate('ViewImportedCards')}>
-                <Text style={importsStyle.text} >Contactos</Text>
+                <Text style={importsStyle.textSecundario} >Contactos</Text>
             </TouchableOpacity>
                   {/* cuando haces una nueva importación de la api, no se agregan a las tarjetas anteriores, sino que llega un lote nuevo. esto hay que cambiarlo */}
 
