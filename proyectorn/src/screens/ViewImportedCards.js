@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Tarjeta from '../components/Tarjeta';
-
+import ViewImportedCardsStyle from '../styles/Styles';
 
 import { 
   View,

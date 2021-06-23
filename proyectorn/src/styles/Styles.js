@@ -17,31 +17,86 @@ const menuStyle = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',  
         height: 200
+    },
+})
+
+const importsStyle = StyleSheet.create({
+    text: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 30
+
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f6c9ae'
+    },
+    item: {
+        justifyContent: 'center',
+        alignItems: 'center',  
+        height: 200
+    },
+    input: {
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderRadius: 20, 
+        width: 300,     
+        borderColor: '#7f8662', 
+    }
+})
+
+const ViewImportedCardsStyle = StyleSheet.create({
+    text: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 30
+
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f6c9ae'
+    },
+    item: {
+        justifyContent: 'center',
+        alignItems: 'center',  
+        height: 200
+    },
+    input: {
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderRadius: 20, 
+        width: 300,     
+        borderColor: '#7f8662', 
     }
 })
 
 const cardStyle = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#7f8662',
         justifyContent: 'center', 
-        alignItems: 'center'
-    },
-    item: {
-        flex: 1,
-        fontSize: 15,
-    },
-    diseñoTarjeta: {
-        backgroundColor: "#8ed7e8",
+        alignItems: 'center',
         borderWidth: 1,
         borderRadius: 20,
-        margin: 5,
-        width: 250,
-        height: 200,
-        padding: 10
+        width: 300,
+        height: 300,
+    },
+    item: {
+        justifyContent: 'center',
+        alignItems: 'center',  
+    },
+    text: {
+        color: '#f6c9ae',
+        fontWeight: 'bold',
+        fontSize: 16
     },
     image:{
-        width: 50, 
-        height: 50,
+        width: 100, 
+        height: 100,
     }
 })
 
@@ -71,6 +126,6 @@ const modalStyle = StyleSheet.create({
     }
 })
 
-export { cardStyle, modalStyle, menuStyle}
+export { cardStyle, modalStyle, menuStyle, importsStyle}
 
 
