@@ -5,28 +5,38 @@ import {
   View,
   Text,
   Animated,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Easing
 } from "react-native";
+
 
 export class About extends Component {
 
   position = new Animated.Value(10)
+  
+  topDown = () => {
+    Animated.timing(this.position, {
+      toValue: 700,
+      duration: 1000,
+      easing: Easing.bounce,
+      useNativeDriver: false
+    }).start();
+  }
+
   render (){
     return (
     <View>
-      <Text>NEMO STUDIO PRESENTS</Text>
-      <Text>NEO NEMO</Text> 
-      <TouchableWithoutFeedback>
        <Animated.View style={{
          top: this.position,
-         width: 150,
-         height: 150,
-         backgroundColor: "green",
+         backgroundColor: '#7f8662',
+         justifyContent: 'center', 
+         alignItems: 'center',
 
-       }}><Text>holaaaaaaaaaaaaaaaa</Text>
+
+
+       }}><Text style={{fontWeight: 'bold', fontSize: 30, color:'#f6c9ae'}} onPress={this.topDown}>NeoNemo</Text>
 
        </Animated.View>
-       </TouchableWithoutFeedback> 
     </View>
   
   
