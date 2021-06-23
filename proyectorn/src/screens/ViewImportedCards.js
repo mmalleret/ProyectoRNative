@@ -46,6 +46,7 @@ async getData() {
   }
 }
 
+
 async filterData(texto) {
 
 
