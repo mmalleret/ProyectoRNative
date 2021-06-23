@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Tarjeta from '../components/Tarjeta';
-
+import { binStyle } from '../styles/Styles';
 
 import { 
   View,
@@ -65,18 +65,32 @@ renderItem = ({item}) => {
 
 render (){
   return (
-  <View>
+  <View style={binStyle.container}>
 
-    <View>
+    <View style={binStyle.item}>
+
         <TouchableOpacity onPress={this.getData.bind(this)}>
-          <Text>Contactos eliminados</Text>
+          <Text style={binStyle.textPrincipal}>Contactos eliminados</Text>
         </TouchableOpacity>
-        <FlatList
-        data={this.state.contactosEliminados}
-        keyExtractor={this.keyExtractor}
-        renderItem={this.renderItem}
-        />
+
+        <TouchableOpacity onPress={ () => this.props.navigation.navigate('Imports')}>
+          <Text style={binStyle.textSecundario} >Añadir contactos</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={ () => this.props.navigation.navigate('ViewImportedCards')}>
+          <Text style={binStyle.textSecundario} >Contactos</Text>
+        </TouchableOpacity>
+
+        <View style={binStyle.containerFlatList} > 
+          <FlatList
+          data={this.state.contactosEliminados}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
+          />
+        </View>
+
     </View>
+
+
 
     </View>
 

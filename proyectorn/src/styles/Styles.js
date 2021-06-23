@@ -204,6 +204,40 @@ const modalStyle = StyleSheet.create({
     },
 })
 
-export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle}
+const binStyle = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center', 
+        alignItems: 'center',
+        backgroundColor: '#f6c9ae',
+        paddingTop: '10%'  
+    },
+    textPrincipal: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 30
+
+    },
+    textSecundario: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 20
+
+    },
+    item: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    containerFlatList: {
+        flex: 1,
+        justifyContent: 'center', 
+        alignItems: 'center',
+        backgroundColor: '#f6c9ae',
+        padding: 20
+    },
+})
+
+export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle, binStyle}
 
 
