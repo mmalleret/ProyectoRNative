@@ -100,9 +100,11 @@ async comment(selectedItem){
 
   const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == selectedItem.login.uuid})
   
-  let addComent = resultado.comentario = comentario
+  resultado.comentario = comentario
 
-  console.log(addComent)
+  const jsonObjeto = JSON.stringify(resultado)
+  console.log(jsonObjeto) 
+  await AsyncStorage.setItem("contactoNuevo", jsonObjeto);
 
 
   
