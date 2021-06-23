@@ -15,7 +15,8 @@ const stylesTarjeta = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center', 
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
     item: {
         flex: 1,
@@ -28,12 +29,18 @@ const stylesTarjeta = StyleSheet.create({
         margin: 5,
         width: 250,
         height: 200,
-        padding: 10
+        padding: 10,
+        
     },
     image:{
         width: 50, 
         height: 50,
-    }
+    },
+    imageMedium:{
+        width: 100, 
+        height: 100,
+    },
+
 })
 
 const navbarStyle = StyleSheet.create({

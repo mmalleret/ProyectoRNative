@@ -10,7 +10,7 @@ import {
   Modal,
   FlatList,
   TextInput,
-  Image
+  Image, 
 } from "react-native";
 import { modalStyle } from '../styles/Styles';
 
@@ -121,7 +121,7 @@ async comment(selectedItem){
           <Tarjeta 
             nombre={item.name.first} 
             apellido={item.name.last}  
-            foto={item.picture.thumbnail} 
+            foto={item.picture.thumbnail}
             edad={item.dob.age} 
             mail={item.email} 
             fecha={item.dob.date}  
