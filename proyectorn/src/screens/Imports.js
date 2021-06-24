@@ -31,11 +31,9 @@ constructor() {
 getDataFromApi(numero) {
   getData(numero)
   .then((resultado)=> {
-    // let adicionar = [this.state.contactos, resultado]
-    // this.setState({contactos: adicionar, activity: false})
     this.setState({activity: true})
-    this.setState({contactos: resultado, activity: false})
-
+    let adicionar = [...this.state.contactos, ...resultado]
+    this.setState({contactos: adicionar, activity: false})
   })
 }
 
