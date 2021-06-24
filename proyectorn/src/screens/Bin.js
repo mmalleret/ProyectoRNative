@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Tarjeta from '../components/Tarjeta';
-import { binStyle } from '../styles/Styles';
+import { binStyle, contactosStyle } from '../styles/Styles';
 
 import { 
   View,
@@ -16,6 +16,8 @@ constructor() {
   super();
   this.state = {
     contactosEliminados: [],
+    eliminadosDelAsync: [],
+    contactosBackup: [],
   }
 }  
 
@@ -56,6 +58,10 @@ renderItem = ({item}) => {
           registro={item.registered.date}
           telefono={item.cell}
         />
+        <View style={contactosStyle.containerButtons}>
+            <View style={contactosStyle.itemButton} ><TouchableOpacity onPress={() => this.recuperar(item)}><Text style={contactosStyle.textButton} >Recuperar</Text></TouchableOpacity></View>
+            <View style={contactosStyle.itemButton} ><TouchableOpacity onPress={() => this.deleteForever(item)}><Text style={contactosStyle.textButton} >Eliminar</Text></TouchableOpacity></View>
+        </View>
       </View>
 
     )
