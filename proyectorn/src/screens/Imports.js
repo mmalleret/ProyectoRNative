@@ -82,7 +82,7 @@ async storeData(value){
   renderItem = ({item}) => {
     return(
 
-        <View>
+        <View  style={importsStyle.tarjeta} >
             
           <Tarjeta 
             nombre={item.name.first} 

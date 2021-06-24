@@ -37,6 +37,9 @@ const importsStyle = StyleSheet.create({
         backgroundColor: '#f6c9ae',
         paddingTop: '10%'
     },
+    tarjeta: {
+        padding: 10
+    },
     textPrincipal: {
         color: '#7f8662',
         fontWeight: 'bold',
@@ -67,7 +70,6 @@ const importsStyle = StyleSheet.create({
         justifyContent: 'center', 
         alignItems: 'center',
         backgroundColor: '#f6c9ae',
-        padding: 20
     },
     containerButton: {
         flex: 1, 
@@ -255,7 +257,10 @@ const binStyle = StyleSheet.create({
         justifyContent: 'center', 
         alignItems: 'center',
         backgroundColor: '#f6c9ae',
-        paddingTop: '10%'  
+        paddingTop: 10  
+    },
+    tarjeta: {
+        padding: 10
     },
     textPrincipal: {
         color: '#7f8662',

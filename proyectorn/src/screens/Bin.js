@@ -43,7 +43,7 @@ keyExtractor = (item, idx) => idx.toString();
 renderItem = ({item}) => {
   return(
 
-      <View>
+      <View style={binStyle.tarjeta}>
           
         <Tarjeta 
           nombre={item.name.first} 
