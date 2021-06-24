@@ -22,17 +22,14 @@ constructor() {
 async getData() {
   try{
     
-    const resultado = await AsyncStorage.getItem("eliminados");
+    let resultado = await AsyncStorage.getItem("eliminados");
 
-    const jsonValue = JSON.parse(resultado)
+    resultado = JSON.parse(resultado)
     
-    if (Array.isArray(jsonValue)) {
-      this.setState({contactosEliminados: jsonValue})
-    } else{
-      this.setState({contactosEliminados:[jsonValue]})
-    }
+    if (resultado == null) resultado = []
     
-
+    this.setState({contactosEliminados: resultado})
+    
   }catch(e){
     console.log(e)
   }
