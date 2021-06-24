@@ -62,7 +62,7 @@ async filterData(value) {
   })
   console.log(filtrar)
   this.setState({contactosImportados: filtrar})
-  }
+}
 
 
 async deleteData(item) {

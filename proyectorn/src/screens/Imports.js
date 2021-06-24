@@ -77,16 +77,6 @@ async storeData(value){
   }
 }
 
-// componentDidUpdate(){
-//   Alert.alert(
-//     "Cantidad de contactos anadidos a la agenda:" + this.state.cantidad,
-//     [{
-//       text:'Cancelar',
-//       onPress: () => console.log("Cancel pressed"),
-//       style: 'cancel'
-//     }]
-//   )
-// }
 
   keyExtractor = (item, idx) => idx.toString();
   renderItem = ({item}) => {
@@ -119,6 +109,7 @@ async storeData(value){
   render (){
     return (
           <View style={importsStyle.container}>
+              <Text>Has añadido {this.state.cantidad} contactos a tu lista de amigos</Text>
 
               <TextInput style={importsStyle.input} onChangeText={ value => this.setState({pedido: value})} placeholder="Cantidad de contactos..." ></TextInput>
               <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>
@@ -128,7 +119,7 @@ async storeData(value){
             <TouchableOpacity onPress={ () => this.props.navigation.navigate('ViewImportedCards')}>
                 <Text style={importsStyle.textSecundario} >Contactos</Text>
             </TouchableOpacity>
-                  {/* cuando haces una nueva importación de la api, no se agregan a las tarjetas anteriores, sino que llega un lote nuevo. esto hay que cambiarlo */}
+                 
 
 
             { this.state.activity

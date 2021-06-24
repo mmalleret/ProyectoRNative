@@ -5,8 +5,6 @@ import {
   View,
   Text,
   Animated,
-  Easing,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   Image
 } from "react-native";
