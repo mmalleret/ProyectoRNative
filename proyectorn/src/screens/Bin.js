@@ -41,6 +41,44 @@ componentDidMount(){
   this.getData(this)
 }
 
+async recuperar(item){
+  try{
+    
+    let resultado =  this.state.contactosEliminados.filter((dato) => {return dato.login.uuid != item.login.uuid})
+    resultado = JSON.stringify(resultado)
+    await AsyncStorage.setItem("eliminados", resultado); 
+
+    let contacto = await AsyncStorage.getItem('contactos');
+    contacto = JSON.parse(contacto)
+    if(contacto == null) contacto = [];
+    contacto.push(item)
+
+    const jsonrecuperar = JSON.stringify(contacto)
+    await AsyncStorage.setItem("contactos", jsonrecuperar);
+
+
+
+  }
+  catch(e){
+    console.log(e)
+  }
+
+}
+
+async deleteForever(item){
+  try{
+    
+    let resultado =  this.state.contactosEliminados.filter((dato) => {return dato.login.uuid != item.login.uuid})
+    resultado = JSON.stringify(resultado)
+    await AsyncStorage.setItem("eliminados", resultado); 
+
+  }
+  catch(e){
+    console.log(e)
+  }
+}
+
+
 keyExtractor = (item, idx) => idx.toString();
 renderItem = ({item}) => {
   return(
