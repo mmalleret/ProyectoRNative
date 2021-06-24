@@ -1,25 +1,50 @@
 import React, { Component } from 'react';
 import { aboutStyle } from '../styles/Styles';
-import { CardAnimated } from '../components/CardAnimation';
+import { CardAbout } from '../components/CardAbout';
 
 import { 
   View,
   Text,
   Animated,
   Easing,
-  TouchableOpacity
 } from "react-native";
 
 
 export class About extends Component {
 
+  position = new Animated.Value(10)
+
+  animateNeoNemo = () => {
+    Animated.timing(this.position, {
+      toValue: 600,
+      duration: 1000,
+      easing: Easing.bounce,
+      useNativeDriver:  false
+    }).start();
+  }
+
+
   render (){
 
     return (
       <View style={aboutStyle.container}>
-        <CardAnimated name={'Clari'} img={require('../assets/img/clari.png')} action={'Hace click para conocerme'} />
-        <CardAnimated name={'Zoe'} img={require('../assets/img/zoe.png')} action={'Hace click para conocerme'} />
-        <CardAnimated name={'Mili'} img={require('../assets/img/mili.png')} action={'Hace click para conocerme'} />
+          
+        <Animated.View style={{
+          top: this.position,
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#7f8662'
+          }}>
+          <Text style={aboutStyle.textPrincipal} onPress={this.animateNeoNemo} >NeoNemo</Text>      
+
+        </Animated.View>
+
+        <View style={aboutStyle.containerUs}>
+          <CardAbout name={'Clari'} img={require('../assets/img/clari.png')} action={'Hace click para conocerme'} />
+          <CardAbout name={'Zoe'} img={require('../assets/img/zoe.png')} action={'Hace click para conocerme'} />
+          <CardAbout name={'Mili'} img={require('../assets/img/mili.png')} action={'Hace click para conocerme'} />
+        </View>
+
       </View>
   
   

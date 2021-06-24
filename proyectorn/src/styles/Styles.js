@@ -255,9 +255,15 @@ const binStyle = StyleSheet.create({
 const aboutStyle = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#f6c9ae'
+    },
+    containerUs: {
+        flex: 3,
         justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: '#f6c9ae'
+    },
+    containerNeoNemo: {
+        flex: 1
     },
     textPrincipal: {
         fontWeight: 'bold', 
