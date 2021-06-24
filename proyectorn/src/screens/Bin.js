@@ -44,7 +44,10 @@ componentDidMount(){
 async recuperar(item){
   try{
     
-    let resultado =  this.state.contactosEliminados.filter((dato) => {return dato.login.uuid != item.login.uuid})
+    let resultado =  this.state.contactosEliminados.filter((dato) => {return dato.login.uuid !== item.login.uuid})
+    this.setState({
+      contactosEliminados: resultado,
+    })
     resultado = JSON.stringify(resultado)
     await AsyncStorage.setItem("eliminados", resultado); 
 
@@ -55,6 +58,8 @@ async recuperar(item){
 
     const jsonrecuperar = JSON.stringify(contacto)
     await AsyncStorage.setItem("contactos", jsonrecuperar);
+
+    
 
 
 
@@ -69,6 +74,9 @@ async deleteForever(item){
   try{
     
     let resultado =  this.state.contactosEliminados.filter((dato) => {return dato.login.uuid != item.login.uuid})
+    this.setState({
+      contactosEliminados: resultado,
+    })
     resultado = JSON.stringify(resultado)
     await AsyncStorage.setItem("eliminados", resultado); 
 
