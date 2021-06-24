@@ -11,6 +11,7 @@ import {
   Text,
   FlatList,
   TextInput,
+  //Alert,
 } from "react-native";
 
 export class Imports extends Component {
@@ -59,8 +60,6 @@ async storeData(value){
     //queremos que se pusheen los contactos en un array asi no se pisan. 
   
     await AsyncStorage.setItem("contactos", jsonContacts);
-
-    
     
     let numeroDeAlmacenados = this.state.almacenar.length
 
@@ -77,6 +76,17 @@ async storeData(value){
     console.log(e)
   }
 }
+
+// componentDidUpdate(){
+//   Alert.alert(
+//     "Cantidad de contactos anadidos a la agenda:" + this.state.cantidad,
+//     [{
+//       text:'Cancelar',
+//       onPress: () => console.log("Cancel pressed"),
+//       style: 'cancel'
+//     }]
+//   )
+// }
 
   keyExtractor = (item, idx) => idx.toString();
   renderItem = ({item}) => {
@@ -133,7 +143,6 @@ async storeData(value){
               keyExtractor={this.keyExtractor}
               renderItem={this.renderItem}
               />
-
               </View>
               
             }       
