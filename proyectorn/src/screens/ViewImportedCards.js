@@ -44,19 +44,20 @@ async getData() {
 }
 
 
-async filterData(texto) {
+async filterData(value) {
 
 
   let filtrar = this.state.contactosImportados.filter((dato) => {
   
   if( 
-      dato.name.first.toUpperCase().includes(texto.toUpperCase()) ||
-      dato.name.last.toUpperCase().includes(texto.toUpperCase())  ||
-      dato.location.city.toUpperCase().includes(texto.toUpperCase()) ||
-      dato.location.country.toUpperCase().includes(texto.toUpperCase())
+      dato.name.first.toUpperCase().includes(value.toUpperCase()) ||
+      dato.name.last.toUpperCase().includes(value.toUpperCase())  ||
+      dato.location.city.toUpperCase().includes(value.toUpperCase()) ||
+      dato.location.country.toUpperCase().includes(value.toUpperCase())
 
     ) return dato;
   })
+  console.log(filtrar)
   this.setState({contactosImportados: filtrar})
   }
 
@@ -97,24 +98,23 @@ showModal(item){
 
 
 
-// async comment(selectedItem){
+ async comment(selectedItem){
 
-//   let comentario = this.state.textHandler;
+  let comentario = this.state.textHandler;
 
-//   const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == selectedItem.login.uuid})
+   const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == selectedItem.login.uuid})
 
-//   resultado.comment = comentario
+   resultado[0].comment = comentario
 
-//   console.log(resultado.comment)
-
-//   const jsonObjeto = JSON.stringify(resultado)
-//   console.log(jsonObjeto) 
-//   await AsyncStorage.setItem("contactoEditado", jsonObjeto);
+   const jsonObjeto = JSON.stringify(resultado)
+   
+   console.log(jsonObjeto) 
+   
+   await AsyncStorage.setItem("contactos", jsonObjeto);
 
 
   
-  
-// }
+}
 
 
 
@@ -134,6 +134,7 @@ showModal(item){
             direccion={item.location} 
             registro={item.registered.date}
             telefono={item.cell}
+            comentario={item.comment}
           />
 
           <View style={contactosStyle.containerButtons}>
@@ -193,7 +194,7 @@ showModal(item){
             <Text style={modalStyle.text} >{this.state.selectedItem.registered.date}</Text>
             <Text style={modalStyle.text} >{this.state.selectedItem.cell}</Text>
           
-            <Text style={modalStyle.textButton} >Añadir comentario: {this.state.textHandler}</Text>
+            <Text style={modalStyle.textButton} >Añadir comentario:</Text>
             <TextInput style={modalStyle.input} onChangeText={ value => this.setState({textHandler: value})} ></TextInput>
             <TouchableOpacity onPress={()=> this.comment(this.state.selectedItem)}><Text style={modalStyle.textButton} >Almacenar comentario</Text></TouchableOpacity>
             

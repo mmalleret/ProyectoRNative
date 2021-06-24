@@ -78,7 +78,7 @@ export default class Tarjeta extends Component {
 
         ],}}>
             <View style={cardStyle.container}>
-            <View style={cardStyle.item} ><Image style={cardStyle.image} source={{uri: this.props.foto}}/></View> 
+            <Text>{this.props.comentario}</Text>
             </View>
       </Animated.View> 
       </TouchableOpacity>
