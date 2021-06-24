@@ -101,25 +101,35 @@ showModal(item){
 
 
 
- async comment(selectedItem){
+//  async comment(selectedItem){
+//   try{
 
-  let comentario = this.state.textHandler;
+//   let comentario = this.state.textHandler;
+//   let contactos = this.state.contactosImportados;
+//   //  const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == selectedItem.login.uuid})
+//     contactos.map((contacto) => {
+//       if(contacto.login.uuid == selectedItem.login.uuid) {
+//         contacto.comment = comentario 
+//       }
+//     })
+//   //  resultado[0].comment = comentario
 
-   const resultado =  this.state.contactosImportados.filter((dato) => {return dato.login.uuid == selectedItem.login.uuid})
-
-   resultado[0].comment = comentario
-
-   const jsonObjeto = JSON.stringify(resultado)
+//    const jsonObjeto = JSON.stringify(contactos)
    
-   console.log(jsonObjeto) 
+//    console.log(jsonObjeto) 
    
-   await AsyncStorage.setItem("contactos", jsonObjeto);
-
-
+//    await AsyncStorage.setItem("contactos", jsonObjeto);
+//    console.log(contactos)
+//    this.setState({contactosImportados: contactos})
+//   }catch(e) {
+//     console.log(e)
+//   }
   
+// }
+
+componentDidUpdate() {
+  console.log('Hola')
 }
-
-
 
   keyExtractor = (item, idx) => idx.toString();
   renderItem = ({item}) => {
@@ -138,6 +148,7 @@ showModal(item){
             registro={item.registered.date}
             telefono={item.cell}
             comentario={item.comment}
+            uuid = {item.login.uuid}
           />
 
           <View style={contactosStyle.containerButtons}>
@@ -201,10 +212,9 @@ showModal(item){
             <Text style={modalStyle.text} >{this.state.selectedItem.registered.date}</Text>
             <Text style={modalStyle.text} >{this.state.selectedItem.cell}</Text>
           
-            <Text style={modalStyle.textButton} >Añadir comentario:</Text>
-            <TextInput style={modalStyle.input} onChangeText={ value => this.setState({textHandler: value})} ></TextInput>
-            <TouchableOpacity onPress={()=> this.comment(this.state.selectedItem)}><Text style={modalStyle.textButton} >Almacenar comentario</Text></TouchableOpacity>
-            
+            {/* <Text style={modalStyle.textButton} >Añadir comentario:</Text> */}
+            {/* <TextInput style={modalStyle.input} onChangeText={ value => this.setState({textHandler: value})} ></TextInput> */}
+            {/* <TouchableOpacity onPress={()=> this.comment(this.state.selectedItem)}><Text style={modalStyle.textButton} >Almacenar comentario</Text></TouchableOpacity> */}
               </>
               }
           </View>
