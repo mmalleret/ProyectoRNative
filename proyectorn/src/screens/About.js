@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { aboutStyle } from '../styles/Styles';
-import { CardAbout } from '../components/CardAbout';
+import { CardAboutUs } from '../components/CardAboutUs';
 
 import { 
   View,
@@ -40,9 +40,9 @@ export class About extends Component {
         </Animated.View>
 
         <View style={aboutStyle.containerUs}>
-          <CardAbout name={'Clari'} img={require('../assets/img/clari.png')} action={'Hace click para conocerme'} />
-          <CardAbout name={'Zoe'} img={require('../assets/img/zoe.png')} action={'Hace click para conocerme'} />
-          <CardAbout name={'Mili'} img={require('../assets/img/mili.png')} action={'Hace click para conocerme'} />
+          <CardAboutUs name={'Clari'} img={require('../assets/img/clari.png')} action={'Hace click para conocerme'} />
+          <CardAboutUs name={'Zoe'} img={require('../assets/img/zoe.png')} action={'Hace click para conocerme'} />
+          <CardAboutUs name={'Mili'} img={require('../assets/img/mili.png')} action={'Hace click para conocerme'} />
         </View>
 
       </View>
