@@ -11,7 +11,21 @@ const menuStyle = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#f6c9ae'
+        backgroundColor: '#f6c9ae',
+    },
+    item: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    itemAnimated: {
+        position: 'absolute',
+        top: 50,
+        width: '100%'
+    },
+    textAnimation: {
+        fontWeight: 'bold', 
+        fontSize: 30, 
+        color:'#f6c9ae'
     }
 })
 
@@ -238,6 +252,35 @@ const binStyle = StyleSheet.create({
     },
 })
 
-export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle, binStyle}
+const aboutStyle = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        backgroundColor: '#f6c9ae'
+    },
+    textPrincipal: {
+        fontWeight: 'bold', 
+        fontSize: 30, 
+        color:'#f6c9ae',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    textSecundario: {
+        fontWeight: 'bold', 
+        fontSize: 10, 
+        color:'#f6c9ae',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    textContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+})
+
+export { cardStyle, modalStyle, menuStyle, importsStyle, contactosStyle, binStyle, aboutStyle}
 
 
