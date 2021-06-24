@@ -43,6 +43,9 @@ async getData() {
   }
 }
 
+componentDidMount(){
+  this.getData(this)
+}
 
 async filterData(value) {
 
@@ -154,9 +157,9 @@ showModal(item){
     return (
     <View style={contactosStyle.container} >
       
-          <TouchableOpacity onPress={this.getData.bind(this)}>
+          {/* <TouchableOpacity onPress={this.getData.bind(this)}>
             <Text style={contactosStyle.textPrincipal} >Contactos importados</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <TouchableOpacity onPress={ () => this.props.navigation.navigate('Imports')}>
                 <Text style={contactosStyle.textSecundario} >Añadir contactos</Text>

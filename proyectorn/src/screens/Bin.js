@@ -35,6 +35,9 @@ async getData() {
   }
 }
 
+componentDidMount(){
+  this.getData(this)
+}
 
 keyExtractor = (item, idx) => idx.toString();
 renderItem = ({item}) => {
@@ -66,15 +69,15 @@ render (){
 
     <View style={binStyle.item}>
 
-        <TouchableOpacity onPress={this.getData.bind(this)}>
+        {/* <TouchableOpacity onPress={this.getData.bind(this)}>
           <Text style={binStyle.textPrincipal}>Contactos eliminados</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <TouchableOpacity onPress={ () => this.props.navigation.navigate('Imports')}>
           <Text style={binStyle.textSecundario} >Añadir contactos</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={ () => this.props.navigation.navigate('ViewImportedCards')}>
-          <Text style={binStyle.textSecundario} >Contactos</Text>
+          <Text style={binStyle.textSecundario}>Contactos</Text>
         </TouchableOpacity>
 
         <View style={binStyle.containerFlatList} > 
