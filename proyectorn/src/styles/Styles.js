@@ -98,6 +98,8 @@ const contactosStyle = StyleSheet.create({
         backgroundColor: '#f6c9ae',
         paddingTop: '10%'
     },
+    tarjeta: {padding: 10
+    },
     itemContactos: {
         justifyContent: 'center',
         alignItems: 'center',  
@@ -123,7 +125,7 @@ const contactosStyle = StyleSheet.create({
     },
     containerButtons: {
         flex: 1, 
-        flexDirection: 'row'
+        flexDirection: 'row',
     },
     itemButton: {
         flex: 2,
@@ -143,11 +145,25 @@ const contactosStyle = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    item: {
-        flex: 1,
+    containerFilter: {
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    },
+    itemTextInput: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 5
+    },
+    containerTouchable: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10
+    },
+    itemTouchable: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 5
+    },
 
 })
 

@@ -125,7 +125,7 @@ showModal(item){
   renderItem = ({item}) => {
     return(
 
-        <View>
+        <View style={contactosStyle.tarjeta} >
             
           <Tarjeta 
             nombre={item.name.first} 
@@ -156,21 +156,22 @@ showModal(item){
 
     return (
     <View style={contactosStyle.container} >
-          <View style={contactosStyle.item}>
-            <TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad"  ></TextInput>
-              <TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput>
-              <TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput>
+          <View style={contactosStyle.containerFilter}>
+            <View style={contactosStyle.itemTextInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad"  ></TextInput></View>
+            <View style={contactosStyle.itemTextInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
+            <View style={contactosStyle.itemTextInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
+            <View style={contactosStyle.itemTextInput} >
+          </View>
 
-                <TouchableOpacity onPress={this.getData.bind(this)}>
-                  <Text style={contactosStyle.textSecundario} >Contactos importados</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={ () => this.props.navigation.navigate('Imports')}>
-                    <Text style={contactosStyle.textSecundario} >Añadir contactos</Text>
-                </TouchableOpacity>
+            <View style={contactosStyle.containerTouchable}>
+              <View style={contactosStyle.itemTouchable} ><TouchableOpacity onPress={this.getData.bind(this)}><Text style={contactosStyle.textSecundario} >Contactos importados</Text></TouchableOpacity></View>
+              <View style={contactosStyle.itemTouchable}><TouchableOpacity onPress={ () => this.props.navigation.navigate('Imports')}><Text style={contactosStyle.textSecundario} >Añadir contactos</Text></TouchableOpacity></View>
+              <View style={contactosStyle.itemTouchable}><TouchableOpacity onPress={ () => this.props.navigation.navigate('Bin')}><Text style={contactosStyle.textSecundario} >Papelera de reciclaje</Text></TouchableOpacity></View>
 
-              <TouchableOpacity onPress={ () => this.props.navigation.navigate('Bin')}>
-                  <Text style={contactosStyle.textSecundario} >Papelera de reciclaje</Text>
-              </TouchableOpacity>
+
+
+            </View>
+
           </View>
 
 
