@@ -156,29 +156,32 @@ showModal(item){
 
     return (
     <View style={contactosStyle.container} >
-      
-          {/* <TouchableOpacity onPress={this.getData.bind(this)}>
-            <Text style={contactosStyle.textPrincipal} >Contactos importados</Text>
-          </TouchableOpacity> */}
+          <View style={contactosStyle.item}>
+            <TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad"  ></TextInput>
+              <TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput>
+              <TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput>
 
-          <TouchableOpacity onPress={ () => this.props.navigation.navigate('Imports')}>
-                <Text style={contactosStyle.textSecundario} >Añadir contactos</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={ () => this.props.navigation.navigate('Bin')}>
-                <Text style={contactosStyle.textSecundario} >Papelera de reciclaje</Text>
-            </TouchableOpacity>
+                <TouchableOpacity onPress={this.getData.bind(this)}>
+                  <Text style={contactosStyle.textSecundario} >Contactos importados</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={ () => this.props.navigation.navigate('Imports')}>
+                    <Text style={contactosStyle.textSecundario} >Añadir contactos</Text>
+                </TouchableOpacity>
 
-          <FlatList
-          data={this.state.contactosImportados}
-          keyExtractor={this.keyExtractor}
-          renderItem={this.renderItem}
-          />
+              <TouchableOpacity onPress={ () => this.props.navigation.navigate('Bin')}>
+                  <Text style={contactosStyle.textSecundario} >Papelera de reciclaje</Text>
+              </TouchableOpacity>
+          </View>
 
-        <View style={contactosStyle.containerInput} >
-          <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad"  ></TextInput></View>
-          <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
-          <View style={contactosStyle.itemInput} ><TextInput style={contactosStyle.input} onChangeText={ value => this.filterData(value)} placeholder="Filtrar por nombre, apellido, país o ciudad" ></TextInput></View>
-        </View>
+
+          <View style={contactosStyle.containerFlatlist}>
+            <FlatList
+            data={this.state.contactosImportados}
+            keyExtractor={this.keyExtractor}
+            renderItem={this.renderItem}
+            />
+          </View>
+
 
       {/* este es el modal */}
       <Modal visible={this.state.showModal} transparent={true}  animationType="slide">

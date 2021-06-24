@@ -115,6 +115,7 @@ const contactosStyle = StyleSheet.create({
         flex: 2
     },
     itemInput: {
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',  
         margin: 20,
@@ -133,7 +134,21 @@ const contactosStyle = StyleSheet.create({
         color: '#7f8662',
         fontWeight: 'bold',
         fontSize: 20
+    },
+    containerTouchable: {
+        flex: 1,
+    },
+    containerFlatlist: {
+        flex: 3,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    item: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
+
 })
 
 const cardStyle = StyleSheet.create({
