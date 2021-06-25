@@ -95,6 +95,8 @@ async storeData(value){
             direccion={item.location} 
             registro={item.registered.date}
             telefono={item.cell}
+            comentario={item.comment}
+            uuid = {item.login.uuid}
           />
 
           <View style={importsStyle.containerButton}>
@@ -109,7 +111,7 @@ async storeData(value){
   render (){
     return (
           <View style={importsStyle.container}>
-              <Text>Has añadido {this.state.cantidad} contactos a tu lista de amigos</Text>
+              <Text style={importsStyle.textTres} >Has añadido {this.state.cantidad} contactos a tu lista de amigos</Text>
 
               <TextInput style={importsStyle.input} onChangeText={ value => this.setState({pedido: value})} placeholder="Cantidad de contactos..." ></TextInput>
               <TouchableOpacity onPress = {() => this.getDataFromApi(this.state.pedido)}>

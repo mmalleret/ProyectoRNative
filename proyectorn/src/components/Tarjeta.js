@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {cardStyle, contactosStyle} from '../styles/Styles';
+import {cardStyle} from '../styles/Styles';
 
 import { 
     Text,
@@ -107,9 +107,9 @@ export default class Tarjeta extends Component {
 
         ],}}>
             <View style={cardStyle.container}>
-            <Text>{this.state.comentario}</Text>
-            <TextInput style={{backgroundColor: 'white', height: 20, width: 50}} onChangeText={ value => this.setState({textHandler:value})}></TextInput>
-            <TouchableOpacity onPress={()=> this.comment()}><Text >Almacenar comentario</Text></TouchableOpacity>
+            <Text style={cardStyle.textButton} >{this.state.comentario}</Text>
+            <TextInput style={cardStyle.input} placeholder='Añadir comentario' onChangeText={ value => this.setState({textHandler:value})}></TextInput>
+            <TouchableOpacity onPress={()=> this.comment()}><Text style={cardStyle.textButton} >Almacenar comentario</Text></TouchableOpacity>
             </View>
       </Animated.View> 
       </TouchableOpacity>

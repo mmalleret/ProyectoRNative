@@ -48,6 +48,7 @@ export class CardAboutUs extends Component {
 
             width: 170,
             height: 170,
+            borderRadius: 20,
             backgroundColor: '#7f8662',
             backfaceVisibility: 'true',
             transform: [
@@ -64,6 +65,7 @@ export class CardAboutUs extends Component {
             <Animated.View style={{
             width: 170,
             height: 170,
+            borderRadius: 20,
             backgroundColor: '#7f8662',
             backfaceVisibility: 'hidden',
             position: 'absolute',
@@ -75,7 +77,7 @@ export class CardAboutUs extends Component {
             ]
             }}>
 
-                <Image style={{height: 170, width: 170}} source={this.props.img} />
+                <Image style={aboutStyle.image} source={this.props.img} />
             </Animated.View>
 
         </View>

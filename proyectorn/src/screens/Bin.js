@@ -103,6 +103,8 @@ renderItem = ({item}) => {
           direccion={item.location} 
           registro={item.registered.date}
           telefono={item.cell}
+          comentario={item.comment}
+          uuid = {item.login.uuid}
         />
         <View style={contactosStyle.containerButtons}>
             <View style={contactosStyle.itemButton} ><TouchableOpacity onPress={() => this.recuperar(item)}><Text style={contactosStyle.textButton} >Recuperar</Text></TouchableOpacity></View>

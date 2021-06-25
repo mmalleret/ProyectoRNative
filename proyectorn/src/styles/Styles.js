@@ -50,7 +50,11 @@ const importsStyle = StyleSheet.create({
         color: '#7f8662',
         fontWeight: 'bold',
         fontSize: 20
-
+    },
+    textTres: {
+        color: '#7f8662',
+        fontWeight: 'bold',
+        fontSize: 15
     },
     textButton: {
         color: '#7f8662',
@@ -63,7 +67,9 @@ const importsStyle = StyleSheet.create({
         borderRadius: 20, 
         width: 300,     
         borderColor: '#7f8662', 
-        margin: 20
+        margin: 20,
+        color: '#7f8662',
+        fontSize: 15
     },
     containerFlatList: {
         flex: 1,
@@ -114,6 +120,8 @@ const contactosStyle = StyleSheet.create({
         borderRadius: 20, 
         width: 300,     
         borderColor: '#7f8662', 
+        color: '#7f8662',
+        fontSize: 15
     },
     containerInput: {
         flex: 2
@@ -192,11 +200,21 @@ const cardStyle = StyleSheet.create({
     textButton: {
         color: '#f6c9ae',
         fontWeight: 'bold',
-        fontSize: 30
+        fontSize: 20
+    },
+    input: {
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderRadius: 20, 
+        width: 200,   
+        borderColor: '#f6c9ae', 
+        margin: 20,
+        color: '#f6c9ae',
+        fontSize: 15
     },
     image:{
-        width: 100, 
-        height: 100,
+        width: 150, 
+        height: 150,
     }
 })
 
@@ -320,6 +338,11 @@ const aboutStyle = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    image: {
+        height: 170, 
+        width: 170, 
+        borderRadius: 20
+    }
 
 })
 
