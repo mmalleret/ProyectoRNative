@@ -73,7 +73,7 @@ async recuperar(item){
 async deleteForever(item){
   try{
     
-    let resultado =  this.state.contactosEliminados.filter((dato) => {return dato.login.uuid != item.login.uuid})
+    let resultado =  this.state.contactosEliminados.filter((dato) => {return dato.login.uuid !== item.login.uuid})
     this.setState({
       contactosEliminados: resultado,
     })
